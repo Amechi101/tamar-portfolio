@@ -1,0 +1,38 @@
+{
+  "name": "tamar-portfolio",
+  "description": "Tamar Portfolio",
+  "scripts": {
+    "webpack:start": "webpack --config webpack.config.js"
+  },
+  "author": "Amechi Egbe",
+  "devDependencies": {
+    "aliasify": "^2.1.0",
+    "autoprefixer": "^9.1.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browser-sync": "^2.24.6",
+    "browserify": "^16.2.2",
+    "postcss": "^7.0.2",
+    "uglify-es": "^3.3.9",
+    "uglifyify": "^5.0.1",
+    "watchify": "^3.11.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-3"
+    ],
+    "ignore": [
+      "node_modules",
+      "static/dist/**.js"
+    ]
+  },
+  "dependencies": {
+    "pixi.js": "^4.8.1"
+  }
+}

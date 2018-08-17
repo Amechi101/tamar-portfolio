@@ -1,0 +1,45 @@
+{% extends "global/layout.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load cloudinary %}
+
+{% block title %}
+    {{ block.super }} {% trans 'Home' %}
+{% endblock %}
+
+{% block social_meta_tags %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body_id %}homepage{% endblock %}
+{% block body_class %}homepage{% endblock %}
+
+
+{% block content %}
+    <section class="homepage-work">
+        <div class="homepage-work__slideshow">
+            <div class="homepage-work__slideshow-collection">
+                <!--//start: homepage-work__slideshow-items: forloop //-->
+                <div class="homepage-work__slideshow-item">
+                    <div class="homepage-work__slideshow-img" style="background-image: url('https://miergallery.com/wp-content/uploads/2015/01/11-8-16-Mier-TamarHalpern8266-1024x680.jpg');"></div>
+                    <div class="homepage-work__slideshow-content">
+                        <h2 class="homepage-work__slideshow-title">Working Title</h2>
+                        <a class="homepage-work__slideshow-link" href="/">2018</a>
+                    </div>
+                </div>
+                <div class="homepage-work__slideshow-item">
+                    <div class="homepage-work__slideshow-img" style="background-image: url('https://d1z6eg5d019rps.cloudfront.net/wp-content/uploads/2015/03/Halpern-2-1024x768.jpg');"></div>
+                    <div class="homepage-work__slideshow-content">
+                        <h2 class="homepage-work__slideshow-title">Working Title 1</h2>
+                        <a class="homepage-work__slideshow-link" href="/">2017</a>
+                    </div>
+                </div>
+               <!--//end: homepage-work__slideshow-items: endloop //-->
+            </div>
+        </div>
+    </section>
+{% endblock %}
+         
+
+
