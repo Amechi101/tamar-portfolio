@@ -12,33 +12,118 @@
     {{ block.super }}
 {% endblock %}
 
-{% block body_id %}homepage{% endblock %}
-{% block body_class %}homepage{% endblock %}
-
 
 {% block content %}
-    <section class="homepage-work">
-        <div class="homepage-work__slideshow">
-            <div class="homepage-work__slideshow-collection">
-                <!--//start: homepage-work__slideshow-items: forloop //-->
-                <div class="homepage-work__slideshow-item">
-                    <div class="homepage-work__slideshow-img" style="background-image: url('https://miergallery.com/wp-content/uploads/2015/01/11-8-16-Mier-TamarHalpern8266-1024x680.jpg');"></div>
-                    <div class="homepage-work__slideshow-content">
-                        <h2 class="homepage-work__slideshow-title">Working Title</h2>
-                        <a class="homepage-work__slideshow-link" href="/">2018</a>
+    <!--//start: year: forloop //-->
+    <section class="homepage__hero">
+        <div class="container">
+            <div class="homepage__hero-wrapper">
+                <div class="homepage__hero-visual homepage__hero-visual--wideLandscape">
+                    <img alt="" src="https://miergallery.com/wp-content/uploads/2015/01/TH_install9-1024x613.jpg" />
+                </div>
+                <div class="homepage__hero-TitleContainer">
+                    <div class="homepage__title title-1">
+                        <h2 class="title title--headline"><span class="u-block">2018</span></h2>
                     </div>
                 </div>
-                <div class="homepage-work__slideshow-item">
-                    <div class="homepage-work__slideshow-img" style="background-image: url('https://d1z6eg5d019rps.cloudfront.net/wp-content/uploads/2015/03/Halpern-2-1024x768.jpg');"></div>
-                    <div class="homepage-work__slideshow-content">
-                        <h2 class="homepage-work__slideshow-title">Working Title 1</h2>
-                        <a class="homepage-work__slideshow-link" href="/">2017</a>
+                <div class="homepage__hero-TitleContainer-bottom homepage__hero-TitleContainer-bottom--block">
+                    <div class="homepage__hero-TitleContainer-bottom__inner col home__headerIntroContainer">
+                        <p class="title title--medium">Working Title</p>
                     </div>
                 </div>
-               <!--//end: homepage-work__slideshow-items: endloop //-->
             </div>
         </div>
     </section>
+    
+    <section class="homepage__workContainer">
+        <div class="container">
+            <div class="homepage__workContent">  
+                <div class="homepage__workGrid">
+                    <!--//start: work grid item: odd forloop //-->
+                    <div class="homepage__workGrid-col col-1">
+                        <article class="homepage__workGrid-item">
+                            <figure>
+                                <div class="homepage__workGrid-img-container homepage__workGrid-img-container--portrait">
+                                    <img alt="" src="https://www.harpersbooks.com/images/exhibitions/Tamar_Halpern/02%20-%20Tamar%20Halpern%20-%20My%20Wretched%20Muse.jpg">
+                                </div>
+                                <figcaption>
+                                    <h3>Title</h3>
+                                    <p><small>2018</small></p>
+                                </figcaption>
+                            </figure>
+                        </article>
+
+                        <article class="homepage__workGrid-item">
+                            <figure>
+                                <div class="homepage__workGrid-img-container homepage__workGrid-img-container--portrait">
+                                    <img alt="" src="https://www.harpersbooks.com/images/exhibitions/Tamar_Halpern/02%20-%20Tamar%20Halpern%20-%20My%20Wretched%20Muse.jpg">
+                                </div>
+                                <figcaption>
+                                    <h3>Title</h3>
+                                    <p><small>2018</small></p>
+                                </figcaption>
+                            </figure>
+                        </article>
+
+                        <article class="homepage__workGrid-item">
+                            <figure>
+                                <div class="homepage__workGrid-img-container homepage__workGrid-img-container--portrait">
+                                    <img alt="" src="https://www.harpersbooks.com/images/exhibitions/Tamar_Halpern/02%20-%20Tamar%20Halpern%20-%20My%20Wretched%20Muse.jpg">
+                                </div>
+                                <figcaption>
+                                    <h3>Title</h3>
+                                    <p><small>2018</small></p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div> <!--//end: work grid item: odd forloop //-->
+
+                    <!--//start: work grid item: even forloop //-->
+                    <div class="homepage__workGrid-col col-2">
+                        <article class="homepage__workGrid-item">
+                            <figure>
+                                <div class="homepage__workGrid-img-container homepage__workGrid-img-container--portrait">
+                                    <img alt="" src="http://miergallery.com/wp-content/uploads/2015/01/TH16.008.jpg">
+                                </div>
+                                <figcaption>
+                                    <h3>Show Name</h3>
+                                    <p><small>Material</small></p>
+                                    <p><small>Dimensions</small></p>
+                                </figcaption>
+                            </figure>
+                        </article>
+
+                        <article class="homepage__workGrid-item">
+                            <figure>
+                                <div class="homepage__workGrid-img-container homepage__workGrid-img-container--portrait">
+                                    <img alt="" src="http://miergallery.com/wp-content/uploads/2015/01/TH16.008.jpg">
+                                </div>
+                                <figcaption>
+                                    <h3>Show Name</h3>
+                                    <p><small>Material</small></p>
+                                    <p><small>Dimensions</small></p>
+                                </figcaption>
+                            </figure>
+                        </article>
+
+                        <article class="homepage__workGrid-item">
+                            <figure>
+                                <div class="homepage__workGrid-img-container homepage__workGrid-img-container--portrait">
+                                    <img alt="" src="http://miergallery.com/wp-content/uploads/2015/01/TH16.008.jpg">
+                                </div>
+                                <figcaption>
+                                    <h3>Show Name</h3>
+                                    <p><small>Material</small></p>
+                                    <p><small>Dimensions</small></p>
+                                </figcaption>
+                            </figure>
+                        </article>
+                    </div> <!--//end: work grid item: even forloop //-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//end: year: forloop //-->
 {% endblock %}
          
 
