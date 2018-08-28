@@ -37,31 +37,18 @@
             {% include "partials/google_analytics.html" %}
         {% endblock %}
 
-        <script src="{% static 'dist/js/vendors/modernizr.min.js' %}"></script>
+        {% comment %}
+            <script src="{% static 'dist/js/vendors/modernizr.min.js' %}"></script>
+        {% endcomment %}
     </head>
 
-    <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+    <body>
 
         {# Main content goes in this 'layout' block #}
         {% block layout %}{% endblock %}
 
-        {# Scripts loaded from a Vendors. #}
-        {% block vendor_scripts %}{% endblock %}
-
-        {# Local scripts #}
-        {% block local_scripts %}{% endblock %}
-
-        {# Additional JS scripts #}
-        {% block extrascripts %}
-            {% include "partials/extrascripts.html" %}
-        {% endblock %}
-
-        {# Block for body onload functions #}
-        <script type="text/javascript">
-            $(function() {
-                {% block onbodyload %}{% endblock %}
-            });
-        </script>
+        {# scripts #}
+        {% block scripts %}{% endblock %}
 
     </body>
 </html>

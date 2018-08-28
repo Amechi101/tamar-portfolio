@@ -1,15 +1,17 @@
-<!--======== Header ========-->
+{% load i18n %}
+
 <header class="header">
     <div class="header__wrapper">
         <div class="header__col">
-            <a href="/">Tamar Halpern.</a>
+            <a class="header__link header__logo header__logo header__logo--name" href="/">Tamar Halpern<span>.</span></a>
+            <a  style="display:none;" class="header__link header__logo header__logo--contact" href="mailto:tamarhalpern@me.com">Contact<span>.</span></a>
+            <span style="display:none;" class="header__link header__logo header__logo--index">Index<span>.</span></span>
         </div>
         <div class="header__col">
-            <div class="header__menu-icon">
-            	<span class="bar tline"></span>
-            	<span class="bar mline"></span>
-            	<span class="bar bline"></span>
-            </div>
+            <a id="about-menu-trigger" class="header__link header__about-menu" href="javascript:void(0);">
+                <span class="u-block header__about-menu--open">About</span>
+                <span style="display: none;" class="u-block header__about-menu--close">Artwork</span>
+            </a>
         </div>
     </div>
 </header>

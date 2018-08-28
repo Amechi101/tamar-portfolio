@@ -23,27 +23,30 @@
 {% endblock %}
 
 {% block layout %}
+    <!--======== Header ========-->
     {% include "partials/header.html" %}
 
+    <!--======== About/CV Menu========-->
+    {% include "partials/about_cv_menu.html" %}
+
+    <!--======== Index Menu ========-->
+    {% include "partials/index_menu.html" %}
+
     {% block content_wrapper %}
+        <!--======== Work ========-->
         <main role="main" class="main">
             {% block content %}{% endblock %}
         </main>
     {% endblock %}
 
-{% endblock %}
-
-{% block vendor_scripts %}
-    <script src="{% static 'dist/js/vendors/jquery.min.js' %}"></script>
-    <script src="{% static 'dist/js/vendors/TweenMax.min.js' %}"></script>
-{% endblock %}
-
-{% block local_scripts %}
-    <script src="{% static 'dist/js/bundle.js' %}"></script>
+    <!--======== Footer Navigation ========-->
+    {% comment %}
+    {% include "partials/footer.html" %}
+    {% endcomment %}
 {% endblock %}
 
 
-{% block onbodyload %}
-    {{ block.super }}
-    <!-- Init calls here -->
+{% block scripts %}
+    <script type="module" src="{% static 'dist/js/bundle.js' %}"></script>
 {% endblock %}
+

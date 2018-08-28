@@ -2,7 +2,9 @@
   "name": "tamar-portfolio",
   "description": "Tamar Portfolio",
   "scripts": {
-    "webpack:start": "webpack --config webpack.config.js"
+    "webpack-config": "webpack --config webpack.config.js",
+    "browser-sync": "browser-sync --proxy 127.0.0.1:8000 --reload-delay=300 --reload-debounce=500",
+    "server-dev-start": "concurrently --kill-others \"python manage.py runserver\" \"npm run webpack-config\""
   },
   "author": "Amechi Egbe",
   "devDependencies": {
@@ -14,6 +16,7 @@
     "babelify": "^8.0.0",
     "browser-sync": "^2.24.6",
     "browserify": "^16.2.2",
+    "concurrently": "^3.6.1",
     "postcss": "^7.0.2",
     "uglify-es": "^3.3.9",
     "uglifyify": "^5.0.1",
@@ -33,6 +36,9 @@
     ]
   },
   "dependencies": {
+    "domready": "^1.0.8",
+    "gsap": "^2.0.1",
+    "jquery": "^3.3.1",
     "pixi.js": "^4.8.1"
   }
 }
