@@ -1,9 +1,18 @@
+// libs
 import $ from 'jquery';
+import CSSRulePlugin from "gsap/CSSRulePlugin";
+
+const plugins = [CSSRulePlugin];
 
 const env = {
+    window: window,
+    document: document,
     $window: $(window),
     $document: $(document),
-    $html: $('html, body'),
+    $htmlBody: $('html, body'),
+    $html: $('html'),
+    $body: $('body'),
+    animationMaskTween: CSSRulePlugin.getRule(".c-mask:after, .c-mask:before"),
     tablet: false,
     mobile: false,
     phone: false,

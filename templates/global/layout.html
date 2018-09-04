@@ -23,14 +23,16 @@
 {% endblock %}
 
 {% block layout %}
-    <!--======== Header ========-->
-    {% include "partials/header.html" %}
-
-    <!--======== About/CV Menu========-->
+    
+    <div id="pointer"></div>
     {% include "partials/about_cv_menu.html" %}
 
-    <!--======== Index Menu ========-->
+    {% comment %}
     {% include "partials/index_menu.html" %}
+    {% endcomment %}
+    
+    <!--======== Header ========-->
+    {% include "partials/header.html" %}
 
     {% block content_wrapper %}
         <!--======== Work ========-->

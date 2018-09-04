@@ -3,7 +3,9 @@ import domready from 'domready'
 import { TweenMax } from 'gsap';
 
 // modules
-import Menu from './ui_components/menu.js';
+import Menu from './components/menu.js';
+import MouseHover from './components/mouse.js';
+import Scrolling from './components/scrolling.js';
 
 
 class App {
@@ -24,21 +26,33 @@ class App {
         this.initComponents();
     }
     browserCheck() {
-        // window.Modernizr.addTest('webkit', 'WebkitAppearance' in document.documentElement.style)
+        window.Modernizr.addTest('webkit', 'WebkitAppearance' in document.documentElement.style);
     }
     initAnimations() {
         // Default easing for all components
         TweenMax.defaultEase = Cubic.easeOut;
     }
     initComponents() {
-        // About CV Menu
-        const about_menu = new Menu('about-menu-trigger', '.about-menu');
+        
+        // about menu
+        const about_menu = new Menu({
+            triggerEl: 'about-menu-trigger', 
+            containerEl: 'about-menu'
+        });
 
-        const index_menu = new Menu('index-menu-trigger', '.index-menu');
-    
+        //Index Menu
+        // const index_menu = new Menu({
+        //     triggerEl: 'index-menu-trigger', 
+        //     containerEl: '.index-menu'
+        // });
+
+        // application scrolling
+        const scrolling = new Scrolling();
+
+        // mouse hovering
+        const mouse_hover = new MouseHover();
     }
 }
-
 
 domready(() => {
     new App()

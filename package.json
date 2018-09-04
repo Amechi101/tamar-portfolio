@@ -17,6 +17,7 @@
     "browser-sync": "^2.24.6",
     "browserify": "^16.2.2",
     "concurrently": "^3.6.1",
+    "imports-loader": "^0.8.0",
     "postcss": "^7.0.2",
     "uglify-es": "^3.3.9",
     "uglifyify": "^5.0.1",
@@ -36,9 +37,12 @@
     ]
   },
   "dependencies": {
+    "debounce": "^1.2.0",
     "domready": "^1.0.8",
+    "events": "^3.0.0",
     "gsap": "^2.0.1",
     "jquery": "^3.3.1",
-    "pixi.js": "^4.8.1"
+    "pixi.js": "^4.8.1",
+    "scrollmagic": "^2.0.5"
   }
 }
