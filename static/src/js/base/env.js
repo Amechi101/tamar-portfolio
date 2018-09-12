@@ -1,6 +1,7 @@
 // libs
 import $ from 'jquery';
 import CSSRulePlugin from "gsap/CSSRulePlugin";
+import ScrollMagic from 'scrollmagic';
 
 const plugins = [CSSRulePlugin];
 
@@ -12,7 +13,8 @@ const env = {
     $htmlBody: $('html, body'),
     $html: $('html'),
     $body: $('body'),
-    animationMaskTween: CSSRulePlugin.getRule(".c-mask:after, .c-mask:before"),
+    animationMaskTween: CSSRulePlugin.getRule(".js .c-mask:after"),
+    scrollMagicController: new ScrollMagic.Controller(),
     tablet: false,
     mobile: false,
     phone: false,

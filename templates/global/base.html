@@ -43,11 +43,34 @@
     </head>
 
     <body>
+        <!--======== Page Loading ========-->
+        <div class="preloader-wrap">
+            <div class="preloader-elements">
+                <div class="text">
+                    <p class="years"></p>
+                </div> 
+            </div>
+        </div>
 
-        {# Main content goes in this 'layout' block #}
+        <!--======== Pointer ========-->
+        <div id="pointer"></div>
+   
+        <!--======== Header ========-->
+        {% include "partials/header.html" %}
+
+        <!--======== Work ========-->
         {% block layout %}{% endblock %}
 
-        {# scripts #}
+        <!--======== Footer ========-->
+        {% comment %}
+        {% include "partials/footer.html" %}
+        {% endcomment %}
+
+        <!--======== Menus ========-->
+        {% include "partials/about_menu.html" %}
+        {% include "partials/index_menu.html" %}
+
+        <!--======== Scripts ========-->
         {% block scripts %}{% endblock %}
 
     </body>

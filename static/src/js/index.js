@@ -3,9 +3,11 @@ import domready from 'domready'
 import { TweenMax } from 'gsap';
 
 // modules
-import Menu from './components/menu.js';
+import Env from './base/env.js'
+import IndexMenu from './components/index-menu.js';
+import AboutMenu from './components/about-menu.js';
 import MouseHover from './components/mouse.js';
-import Scrolling from './components/scrolling.js';
+import PageLoding from './components/page-loading.js';
 
 
 class App {
@@ -18,10 +20,11 @@ class App {
             window.console.log.apply(console, args);
             
         } else if (window.console) {
-            window.console.log('The Real Tamar Halpern. :-) --> http://tamarhalpern.nyc/');
+            window.console.log('The Best Tamar Halpern. :-) --> http://tamarhalpern.nyc/');
         }
 
         this.browserCheck();
+        this.initPageLoading();
         this.initAnimations();
         this.initComponents();
     }
@@ -32,24 +35,27 @@ class App {
         // Default easing for all components
         TweenMax.defaultEase = Cubic.easeOut;
     }
+    initPageLoading() {
+        new PageLoding();
+    }
     initComponents() {
         
         // about menu
-        const about_menu = new Menu({
+        const about_menu = new AboutMenu({
             triggerEl: 'about-menu-trigger', 
             containerEl: 'about-menu'
         });
 
-        //Index Menu
-        // const index_menu = new Menu({
-        //     triggerEl: 'index-menu-trigger', 
-        //     containerEl: '.index-menu'
-        // });
+        // index menu
+        const index_menu = new IndexMenu({
+            triggerEl: 'index-menu-trigger', 
+            containerEl: 'index-menu'
+        });
 
-        // application scrolling
-        const scrolling = new Scrolling();
+        // // page scrolling events
+        // const scrolling = new Scrolling();
 
-        // mouse hovering
+        // page mouse hovering event
         const mouse_hover = new MouseHover();
     }
 }

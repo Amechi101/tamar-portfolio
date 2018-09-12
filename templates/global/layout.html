@@ -6,8 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'dist/css/main.css' %}" />
 {% endblock %}
 
-{% block social_meta_tags %}
-    
+{% block social_meta_tags %}  
     <!-- Facebook -->
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:site_name" content="{{ request.site.name }}">
@@ -22,31 +21,13 @@
     {% block twitter_extra_tags %}{% endblock %}
 {% endblock %}
 
-{% block layout %}
-    
-    <div id="pointer"></div>
-    {% include "partials/about_cv_menu.html" %}
-
-    {% comment %}
-    {% include "partials/index_menu.html" %}
-    {% endcomment %}
-    
-    <!--======== Header ========-->
-    {% include "partials/header.html" %}
-
+{% block layout %} 
     {% block content_wrapper %}
-        <!--======== Work ========-->
         <main role="main" class="main">
             {% block content %}{% endblock %}
         </main>
     {% endblock %}
-
-    <!--======== Footer Navigation ========-->
-    {% comment %}
-    {% include "partials/footer.html" %}
-    {% endcomment %}
 {% endblock %}
-
 
 {% block scripts %}
     <script type="module" src="{% static 'dist/js/bundle.js' %}"></script>
