@@ -65,7 +65,7 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [
 ]
 
 DATABASES = {
-   'default': dj_database_url.config(default=config('DATABASE_URL'))
+   'default': dj_database_url.config(default=env('DATABASE_URL'))
 }
 
 # CACHING
