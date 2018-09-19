@@ -18,6 +18,7 @@ pbr==3.1.1
 psycopg2==2.7.4
 pycparser==2.18
 pytz==2018.5
+raven==6.9.0
 redis==2.10.6
 six==1.11.0
 sqlparse==0.2.4
