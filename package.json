@@ -3,25 +3,17 @@
   "description": "Tamar Portfolio",
   "scripts": {
     "webpack-config": "webpack --config webpack.config.js",
-    "browser-sync": "browser-sync --proxy 127.0.0.1:8000 --reload-delay=300 --reload-debounce=500",
     "server-dev-start": "concurrently --kill-others \"python manage.py runserver\" \"npm run webpack-config\""
   },
   "author": "Amechi Egbe",
   "devDependencies": {
-    "aliasify": "^2.1.0",
-    "autoprefixer": "^9.1.1",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
     "babelify": "^8.0.0",
-    "browser-sync": "^2.24.6",
     "browserify": "^16.2.2",
     "concurrently": "^3.6.1",
     "imports-loader": "^0.8.0",
-    "postcss": "^7.0.2",
-    "uglify-es": "^3.3.9",
-    "uglifyify": "^5.0.1",
-    "watchify": "^3.11.0",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
@@ -33,7 +25,8 @@
     ],
     "ignore": [
       "node_modules",
-      "static/dist/**.js"
+      "tamar_portfolio_app/static/dist/**.js",
+      "tamar_portfolio_app/static/dist/vendors/**.js"
     ]
   },
   "dependencies": {
@@ -42,6 +35,7 @@
     "events": "^3.0.0",
     "gsap": "^2.0.1",
     "jquery": "^3.3.1",
+    "jquery.nicescroll": "^3.7.6",
     "pixi.js": "^4.8.1",
     "scrollmagic": "^2.0.5"
   }

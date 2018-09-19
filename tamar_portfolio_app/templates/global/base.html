@@ -1,0 +1,73 @@
+{% load i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js"> <!--<![endif]-->
+    <head>
+        <title>{% block head_title_base %} {{ site.name }} | {% trans 'New York City-Based Artist' %} {% endblock %}</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="created" content="{% now "jS M Y h:i" %}" />
+        <meta name="description" content="{% block meta_description %}Welcome to the official website of artist, Tamar Halpern.  Tamar makes paintings but doesn't paint.....paintings, drawings, artist books.... work is alive, changing, breathing...magic.{% endblock %}" />
+        <meta name="viewport" content="{% block viewport %}width=device-width{% endblock %}" />
+        <meta name="robots" content="NOARCHIVE,NOCACHE" />
+
+        <meta name="device-size" content="set via css through font-family prop in order to be read by js">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        {% block favicon %}
+            <link rel="shortcut icon" href="@TODO enter favicon" />
+        {% endblock %}
+
+        {# Block where global CSS will go. #}
+        {% block styles %}{% endblock %}
+
+        {# Additional CSS - specific to certain pages #}
+        {% block extrastyles %}{% endblock %}
+
+        {% block extrahead %}{% endblock %}
+        {% block social_meta_tags %}{% endblock %}
+
+        {% block tracking %}
+            {# Default to using Google analytics #}
+            {% include "partials/google_analytics.html" %}
+        {% endblock %}
+
+        <script src="{% static 'dist/js/vendors/modernizr-custom.min.js' %}"></script>
+    </head>
+
+    <body>
+        <div id="pointer"></div>
+        
+        <!--======== Page Loading ========-->
+        <div class="preloader-wrap">
+            <div class="preloader-elements">
+                <div class="text">
+                    <p class="years"></p>
+                </div> 
+            </div>
+        </div>
+   
+        <!--======== Header ========-->
+        {% include "partials/header.html" %}
+
+        <!--======== Work ========-->
+        {% block layout %}{% endblock %}
+
+        <!--======== Menus ========-->
+        {% include "partials/about_menu.html" %}
+        {% include "partials/index_menu.html" %}
+
+        <!--======== Scripts ========-->
+        {% block scripts %}{% endblock %}
+    </body>
+</html>
+
+
+
