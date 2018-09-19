@@ -1,3 +1,15 @@
+"""
+Production settings for Unlabel project.
+
+- Use WhiteNoise for serving static files
+- Use Redis for cache
+
+- Use sentry for error logging
+- Use opbeat for error reporting (did not install)
+
+"""
+
+
 import dj_database_url
 import logging
 
@@ -60,7 +72,7 @@ INSTALLED_APPS += ['gunicorn', ]
 
 # Static Assets
 # ------------------------
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'config.storage.WhiteNoiseStaticFilesStorage'
 
 
 # TEMPLATE CONFIGURATION
