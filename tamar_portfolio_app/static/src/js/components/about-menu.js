@@ -1,9 +1,9 @@
 // libs
 import $ from 'jquery';
 import { TweenMax, TimelineMax, CSSPlugin } from 'gsap';
+import CSSRulePlugin from "gsap/CSSRulePlugin";
 import ScrollMagic from 'scrollmagic';
 import "animation.gsap";
-import "debug.addIndicators";
 
 const plugins = [CSSPlugin];
 
@@ -19,6 +19,8 @@ class AboutMenu extends Menu {
   	}
   	scrollingEvents() {
 
+  		const controller = new ScrollMagic.Controller()
+
 		//section CV titles
 		$('.about-menu__cv-title-cover').each(function() {
 
@@ -33,7 +35,7 @@ class AboutMenu extends Menu {
 				})
 				.setTween(sectionCVTitleTween)
 				// .addIndicators()
-				.addTo(Env.scrollMagicController);
+				.addTo(controller);
 
 		});
 
@@ -68,7 +70,7 @@ class AboutMenu extends Menu {
 				})
 				.setTween(polygonTimeline)
 				// .addIndicators()
-				.addTo(Env.scrollMagicController);
+				.addTo(controller);
 		});
   	}
 	
@@ -77,7 +79,6 @@ class AboutMenu extends Menu {
 	// ----------------------------------------------------------------------------------------
  	menuOpen() {
  		super.menuOpen(...arguments);
- 		console.log('about menu test --> open');
 
  		const aboutMenuTween = [
 
@@ -124,7 +125,6 @@ class AboutMenu extends Menu {
  	}
  	menuClose() {
  		super.menuClose(...arguments);
- 		console.log('about menu test --> close');
  		this.aboutMenuTimeline.reverse();
  	}	
 }

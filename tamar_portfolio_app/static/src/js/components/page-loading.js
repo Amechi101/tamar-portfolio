@@ -1,9 +1,6 @@
 // libs
 import $ from 'jquery';
 import { TweenMax, TimelineMax, CSSPlugin } from 'gsap';
-import ScrollMagic from 'scrollmagic';
-import "animation.gsap";
-import "debug.addIndicators";
 
 const plugins = [CSSPlugin];
 
@@ -40,12 +37,12 @@ class PageLoading {
 
 		Env.$window.on('load', function() {
 	        console.log('page loaded!'); 
-
+	       
 	        this.pageLoaderAnimations();
 
-	        Env.$htmlBody.animate({ 
-                scrollTop: 0
-	        }, 1000);
+	           // Env.$htmlBody.animate({ 
+         //        scrollTop: 0
+	        // }, 1000);
 
 	    }.bind(this));
 
@@ -64,8 +61,6 @@ class PageLoading {
 
 		const workSectionSubTitle = $('.homepage__hero-TitleContainer-bottom p');
 
-		const workSectionItemOne = $('.col-1 .homepage__workGrid-item').first();
-
 		const indexMenu = $('.index-menu-button');
 
 		const pageLoaderTweens = [
@@ -74,7 +69,7 @@ class PageLoading {
 
 				tweens:[
 
-					TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionImage, workSectionSubTitle, workSectionItemOne, indexMenu], { opacity: 0 } ),
+					TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionImage, workSectionSubTitle, indexMenu], { opacity: 0 } ),
 
 		   			TweenMax.staggerFromTo(this.workSectionYears, 1, 
 		   				{
@@ -92,7 +87,7 @@ class PageLoading {
 
 									const tweenEl = $(element).appendTo(preloaderYears);
 
-									console.log(tweenEl, 'tween element')
+									// console.log(tweenEl, 'tween element');
 
 								});
 
@@ -108,7 +103,7 @@ class PageLoading {
 
 									const tweenEl = TweenMax.to($(element), .7, { css: { autoAlpha: 0, display: 'none'} });
 
-									console.log(tweenEl, 'remove element');
+									// console.log(tweenEl, 'remove element');
 
 								});
 							
@@ -123,7 +118,7 @@ class PageLoading {
 
 			TweenMax.to(preLoaderWrap, .7, { css: { autoAlpha:0, display: 'none'} }),
 
-			TweenMax.staggerTo([logo, aboutMenu, workSectionTitle, workSectionImage, workSectionSubTitle, workSectionItemOne, indexMenu], .7, { opacity: 1 }, 0.2)
+			TweenMax.staggerTo([logo, aboutMenu, workSectionTitle, workSectionImage, workSectionSubTitle, indexMenu], .7, { opacity: 1 }, 0.2)
 		]
 
 		const pageLoaderTimeLine = new TimelineMax({ 

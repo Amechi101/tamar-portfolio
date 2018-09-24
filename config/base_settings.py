@@ -13,7 +13,7 @@ APPS_DIR = BASE_DIR.path('tamar_portfolio_app')
 env = environ.Env()
 
 # .env file, should load only in development environment
-READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=False)
+READ_DOT_ENV_FILE = env.bool('DJANGO_READ_DOT_ENV_FILE', default=True)
 
 if READ_DOT_ENV_FILE:
 
@@ -80,9 +80,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # MANAGER CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [
-    ("""Amechi Egbe""", 'amechiegbe@unlabel.us'),
-]
+ADMINS = []
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
@@ -99,11 +97,11 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'tamarportfolio',
-        'USER': 'amechiegbe',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
         'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': 5432,
+        'HOST': env('DATEBASE_HOST'),
+        'PORT': env('DATEBASE_PORT'),
         'ATOMIC_REQUESTS': True
     }
 }
@@ -258,10 +256,9 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-
 # Cloudinary configuration
 cloudinary.config( 
-    cloud_name = 'dcozrqiyb', 
-    api_key = '121822361865589', 
-    api_secret = 'ykn_49C4jCxkvmovgMnfKCAzN68' 
+    cloud_name = env('CLOUDINARY_NAME'), 
+    api_key = env('CLOUDINARY_API_KEY'), 
+    api_secret = env('CLOUDINARY_API_SECRET')
 )

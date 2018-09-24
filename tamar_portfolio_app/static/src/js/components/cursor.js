@@ -4,7 +4,7 @@ import device from '../utils/device.js';
 
 
 
-class MouseHover {
+class Cursor {
 	constructor() {
 		this.init();
 	}
@@ -63,4 +63,4 @@ class MouseHover {
 	}
 }
 
-export default MouseHover;
+export default Cursor;
