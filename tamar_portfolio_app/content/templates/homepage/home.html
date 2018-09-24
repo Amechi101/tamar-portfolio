@@ -10,12 +10,12 @@
     {% for artwork_year in artwork_year_list %}
         {% if artwork_year.is_active %}
             <!--//start: year: {{ artwork_year.year }} //-->
-            <div class="homepage__year" data-work-year="{{ artwork_year.year }}" data-work-year-index="{{ forloop.counter0 }}">
+            <div class="homepage__year" data-work-year="{{ artwork_year.year }}">
                 <section class="homepage__hero">
                     <div class="container">
                         <div class="homepage__hero-wrapper">
-                            <div id="heroImage{{ forloop.counter0 }}" class="homepage__hero-visual homepage__hero-visual--wideLandscape" data-hero-image="{% cloudinary_url artwork_year.cover_image %}">
-                                <img alt="{{ artwork_year.year }}" src="{% cloudinary_url artwork_year.cover_image %}" />
+                            <div class="homepage__hero-visual homepage__hero-visual--wideLandscape" data-hero-image="{% cloudinary_url artwork_year.cover_image %}">
+                                <img style="visibility: hidden;" alt="{{ artwork_year.year }}" src="{% cloudinary_url artwork_year.cover_image %}" />
                             </div>
                             <div class="homepage__hero-TitleContainer">
                                 <div class="homepage__title">

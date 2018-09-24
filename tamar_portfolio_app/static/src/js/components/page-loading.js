@@ -19,32 +19,51 @@ class PageLoading {
 		}).get().reverse();
 
 
-		// this.workSectionYears = [
-
-		// $("<span class='u-block'>" + 2018 + "</span>"), 
-		// $("<span class='u-block'>" + 2017 + "</span>"), 
-		// $("<span class='u-block'>" + 2016 + "</span>"), 
-		// $("<span class='u-block'>" + 2015 + "</span>"), 
-		// $("<span class='u-block'>" + 2014 + "</span>"),
-		// $("<span class='u-block'>" + 2013 + "</span>"),
-		// $("<span class='u-block'>" + 2012 + "</span>"),
-		// $("<span class='u-block'>" + 2011 + "</span>")
-		// ].reverse();
-
 		this.init();
 	}
 	init() {
 
-		Env.$window.on('load', function() {
-	        console.log('page loaded!'); 
-	       
-	        this.pageLoaderAnimations();
+		// Env.$document.scrollTop(0);
 
-	           // Env.$htmlBody.animate({ 
-         //        scrollTop: 0
-	        // }, 1000);
+		const stat = document.getElementById("progstat");
+		const img = document.images
+		const totalImages = img.length;
+		
+		let imageCount = 0;
+		let perc;
+		let tImg;
+		
 
-	    }.bind(this));
+		const imgLoaded = () => {
+			imageCount += 1;
+
+			perc = ( ((100/totalImages) * imageCount) << 0 ) + "%";
+
+			stat.innerHTML = perc;
+			
+			if( imageCount === totalImages ) {
+				return doneLoading();
+			}
+		};
+
+		const doneLoading = () => {
+			Env.$window.on('load', function() {
+			
+				console.log('page loaded!'); 
+				       
+				this.pageLoaderAnimations();
+
+			}.bind(this));
+		};
+
+	    
+	    for(var i=0; i < totalImages; i++) {
+	    	tImg = new Image();
+	      	tImg.onload  = imgLoaded;
+	      	tImg.onerror = imgLoaded;
+	     	tImg.src = img[i].src;
+	    }    
+		
 
 	}
 	pageLoaderAnimations() {
@@ -57,19 +76,22 @@ class PageLoading {
 
 		const workSectionTitle = $('.homepage__title h2')
 
-		const workSectionImage = $('.homepage__hero-wrapper');
+		const workSectionImage = $('.homepage__hero-visual canvas');
 
 		const workSectionSubTitle = $('.homepage__hero-TitleContainer-bottom p');
 
 		const indexMenu = $('.index-menu-button');
 
+		TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage], { opacity: 0 } );
+
+
 		const pageLoaderTweens = [
+
+			TweenMax.to($('.pre-loadText'), .7, { css: { autoAlpha:0, display: 'none'} }),
 
 			new TimelineMax({ 
 
 				tweens:[
-
-					TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionImage, workSectionSubTitle, indexMenu], { opacity: 0 } ),
 
 		   			TweenMax.staggerFromTo(this.workSectionYears, 1, 
 		   				{
@@ -118,7 +140,7 @@ class PageLoading {
 
 			TweenMax.to(preLoaderWrap, .7, { css: { autoAlpha:0, display: 'none'} }),
 
-			TweenMax.staggerTo([logo, aboutMenu, workSectionTitle, workSectionImage, workSectionSubTitle, indexMenu], .7, { opacity: 1 }, 0.2)
+			TweenMax.staggerTo([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage], .7, { opacity: 1 }, 0.3),
 		]
 
 		const pageLoaderTimeLine = new TimelineMax({ 

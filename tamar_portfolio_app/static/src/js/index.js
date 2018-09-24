@@ -6,7 +6,7 @@ import Env from './base/env.js'
 import { pageScrollTop, tweenMaxDefaultEase } from './components/global.js';
 import IndexMenu from './components/index-menu.js';
 import AboutMenu from './components/about-menu.js';
-import WorkSection from './components/work-section.js';
+import HomePage from './components/homepage.js';
 import Cursor from './components/cursor.js';
 import PageLoding from './components/page-loading.js';
 
@@ -35,8 +35,8 @@ class App {
         // page loading
         const page_loading = new PageLoding();
 
-        // work section
-        const work_section = new WorkSection();
+        // homepage
+        const homepage = new HomePage();
         
         // about menu
         const about_menu = new AboutMenu({

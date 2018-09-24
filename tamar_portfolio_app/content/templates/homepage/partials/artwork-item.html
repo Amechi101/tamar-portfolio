@@ -11,10 +11,10 @@
 
             {% if artwork.video %}
             	<video id="videoPlayer" controls controlsList="nodownload"> 
-                    <source src="{% cloudinary_url artwork.video %}#t=1" type="video/mp4">
-                    <source src="{% cloudinary_url artwork.video %}#t=1" type="video/webm">
-                    <source src="{% cloudinary_url artwork.video %}#t=1" type="video/ogg">
-                   	<source src="{% cloudinary_url artwork.video %}#t=1" type="video/avi">
+                    <source src="{% cloudinary_url artwork.video %}#t=0" type="video/mp4">
+                    <source src="{% cloudinary_url artwork.video %}#t=0" type="video/webm">
+                    <source src="{% cloudinary_url artwork.video %}#t=0" type="video/ogg">
+                   	<source src="{% cloudinary_url artwork.video %}#t=0" type="video/avi">
                	</video>
             {% endif %}
         </div>
