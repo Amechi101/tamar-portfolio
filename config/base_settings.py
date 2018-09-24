@@ -97,11 +97,11 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
+        'NAME': 'tamarportfolio',
+        'USER': 'amechiegbe',
         'PASSWORD': '',
-        'HOST': env('DATEBASE_HOST'),
-        'PORT': env('DATEBASE_PORT'),
+        'HOST': 'localhost',
+        'PORT': '5432',
         'ATOMIC_REQUESTS': True
     }
 }
