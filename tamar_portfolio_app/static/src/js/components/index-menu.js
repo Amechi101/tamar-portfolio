@@ -49,7 +49,6 @@ class IndexMenu extends Menu {
 	// ----------------------------------------------------------------------------------------
  	menuOpen() {
  		super.menuOpen(...arguments);
- 		console.log('index menu test --> open');
 
  		const indexMenuTrigger = $('.index-menu-button');
 
@@ -106,7 +105,6 @@ class IndexMenu extends Menu {
  	}
  	menuClose() {
  		super.menuClose(...arguments);
- 		console.log('index menu test --> close');
  		this.indexMenuTimeline.reverse();
  	}	
 }

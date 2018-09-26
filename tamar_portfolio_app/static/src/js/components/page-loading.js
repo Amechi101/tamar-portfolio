@@ -23,8 +23,6 @@ class PageLoading {
 	}
 	init() {
 
-		// Env.$document.scrollTop(0);
-
 		const stat = document.getElementById("progstat");
 		const img = document.images
 		const totalImages = img.length;
@@ -33,7 +31,6 @@ class PageLoading {
 		let perc;
 		let tImg;
 		
-
 		const imgLoaded = () => {
 			imageCount += 1;
 
@@ -83,7 +80,6 @@ class PageLoading {
 		const indexMenu = $('.index-menu-button');
 
 		TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage], { opacity: 0 } );
-
 
 		const pageLoaderTweens = [
 

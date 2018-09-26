@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ArtworkYear, ArtworkDetail, CurriculumVitaeCatgories, CurriculumVitaeDetail
+from .models import (ArtworkYear, ArtworkDetail, CurriculumVitaeCatgories, CurriculumVitaeDetail, Gallery, Collection, GeneralInformation)
 
 class ArtworkDetailInline(admin.StackedInline):
     model = ArtworkDetail
@@ -28,6 +28,27 @@ class  CurriculumVitaeCatgoriesAdmin(admin.ModelAdmin):
 
 	inlines = [CurriculumVitaeDetailInline]
 
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+
+	list_display = ['name', 'location']
+
+	search_fields = ['name',]
+
+
+@admin.register(Collection)
+class CollectionAdmin(admin.ModelAdmin):
+
+	list_display = ['name',]
+
+	search_fields = ['name',]
+
+
+@admin.register(GeneralInformation)
+class GeneralInformationAdmin(admin.ModelAdmin):
+
+	list_display = ['pk', 'public_email']
 
 # @admin.register(YearlyArtworkDetail)
 # class  YearlyArtworkAdmin(admin.ModelAdmin):

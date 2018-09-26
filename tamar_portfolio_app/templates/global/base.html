@@ -10,7 +10,7 @@
 
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta name="created" content="{% now "jS M Y h:i" %}" />
-        <meta name="description" content="{% block meta_description %}Welcome to the official website of artist, Tamar Halpern.  Tamar makes paintings but doesn't paint.....paintings, drawings, artist books.... work is alive, changing, breathing...magic.{% endblock %}" />
+        <meta name="description" content="{% block meta_description %}Welcome to the official website of artist, Tamar Halpern. Tamar makes paintings but doesn't paint.....paintings, drawings, artist books.... work is alive, changing, breathing...magic.{% endblock %}" />
         <meta name="viewport" content="{% block viewport %}width=device-width{% endblock %}" />
         <meta name="robots" content="NOARCHIVE,NOCACHE" />
 
@@ -22,7 +22,7 @@
         <![endif]-->
 
         {% block favicon %}
-            <link rel="shortcut icon" href="@TODO enter favicon" />
+            <link rel="icon" href="{% static 'dist/img/favicon.ico' %}" />
         {% endblock %}
 
         {# Block where global CSS will go. #}
@@ -33,7 +33,7 @@
 
         {% block social_meta_tags %}{% endblock %}
        
-        <link rel="canonical" href="https://{{ site.domain }}/">
+        <link rel="canonical" href="{% if request.is_secure %}https{% else %}http{% endif %}://{{ site.domain }}/">
        
         {% block tracking %}
             {# Default to using Google analytics #}
@@ -45,9 +45,7 @@
 
     <body>
         <div id="pointer"></div>
-        <div id="page-progression">
-            <!-- <div class="jsProgress"></div> -->
-        </div>
+        <div id="page-progression"></div>
         
         <!--======== Page Loading ========-->
         <div class="preloader-wrap">
@@ -69,9 +67,26 @@
         <!--======== Work ========-->
         {% block layout %}{% endblock %}
 
+        <!-- <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>If you mad it this far.... Please feel free to reach out...</p>
+                    <p><a href="">email...</a></p>
+                    <ul>
+                        <li><a href=""><img src="https://toppaddockcafe.com/wp-content/themes/top_paddock/img/ig.svg" alt=""></a></li>
+                        <li><a href=""><img src="https://toppaddockcafe.com/wp-content/themes/top_paddock/img/ig.svg" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer> -->
+
         <!--======== Menus ========-->
         {% include "partials/about_menu.html" %}
         {% include "partials/index_menu.html" %}
+
+        <!-- <div class="contact">
+            <a href="#">Contact</a>
+        </div> -->
 
         <!--======== Scripts ========-->
         {% block scripts %}{% endblock %}

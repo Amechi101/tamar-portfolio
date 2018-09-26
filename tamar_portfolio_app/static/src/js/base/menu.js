@@ -1,9 +1,6 @@
 // libs
 import $ from 'jquery';
 
-// modules
-import Env from './env.js'
-
 
 class Menu {
 	constructor({triggerEl, containerEl}) {
@@ -35,6 +32,8 @@ class Menu {
 	toggleMenuEvent() {
 
 		this.menuTrigger.on('click', function( event ) {
+
+			event.preventDefault();
            	
 		    const target = typeof event === 'undefined' ? this.isOpen : $(event.currentTarget);
 

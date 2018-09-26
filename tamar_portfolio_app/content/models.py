@@ -31,9 +31,9 @@ class ArtworkYear(TimeModel):
 
 	# Metadata
 	class Meta: 
-		verbose_name = _('Artwork Year')
+		verbose_name = _('Artwork')
 		
-		verbose_name_plural = _('Artwork Years')
+		verbose_name_plural = _('Artworks')
 
 		ordering = ['-year']
 
@@ -95,7 +95,7 @@ class ArtworkDetail(models.Model):
 @python_2_unicode_compatible
 class CurriculumVitaeCatgories(TimeModel):
 	"""
-	CV Categories for work resume
+	CV Category for work resume
 
 	"""
 
@@ -116,14 +116,14 @@ class CurriculumVitaeCatgories(TimeModel):
 	class Meta: 
 		verbose_name = _('Curriculum Vitae')
 		
-		verbose_name_plural = _('Curriculum Vitae Information')
+		verbose_name_plural = _('Curriculum Vitae')
 
 
 
 @python_2_unicode_compatible
 class CurriculumVitaeDetail(models.Model):
 	"""
-	CV Detail for work resume
+	CV Detail for work
 
 	"""
 
@@ -142,3 +142,70 @@ class CurriculumVitaeDetail(models.Model):
 		verbose_name = _('CV Detail')
 		
 		verbose_name_plural = _('CV Details')
+
+
+
+@python_2_unicode_compatible
+class Gallery(TimeModel):
+	"""
+	Galleries around the world Tamar Halpern's artwork is located
+
+	"""
+
+	name = models.CharField(max_length=255, null=True, blank=False, verbose_name='Gallery Name')
+
+	location = models.CharField(max_length=255, null=True, blank=False, verbose_name='Gallery Location')
+
+
+	def __str__(self):
+		return "{0}".format(self.name)
+
+	# Metadata
+	class Meta: 
+		verbose_name = _('Gallery')
+		verbose_name_plural = _('Galleries')
+
+
+
+@python_2_unicode_compatible
+class Collection(TimeModel):
+	"""
+	Famous collections associated with Tamar Halpern's work
+
+	"""
+
+	name = models.CharField(max_length=255, null=True, blank=False, verbose_name='Collection Name')
+
+
+	def __str__(self):
+		return "{0}".format(self.name)
+
+	# Metadata
+	class Meta: 
+		verbose_name = _('Collection')
+		verbose_name_plural = _('Collections')
+
+
+
+@python_2_unicode_compatible
+class GeneralInformation(models.Model):
+	"""
+	General Information about Tamar Halpern
+
+	"""
+
+	public_email = models.EmailField(max_length=200, null=True, blank=True, verbose_name='Email', help_text='Public facing contact email.')
+
+	about_description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='About Description', help_text="Max length 1000 characters")
+
+	google_analytics = models.TextField(max_length=1000, null=True, blank=True, verbose_name='Google Analytics Code', 
+		help_text="Paste your google analytics code here")
+
+	def __str__(self):
+		return "{0}".format(self.pk)
+
+	# Metadata
+	class Meta: 
+		verbose_name = _('General Information')
+		
+		verbose_name_plural = _('General Information')

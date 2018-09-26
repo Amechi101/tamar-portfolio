@@ -16,23 +16,30 @@ class HomePage {
 	init() {
 		this.heroSection();
 		this.workSection();
-		this.pageProgression();
+		this.pageProgressBar();
 	}
-	pageProgression() {
+	pageProgressBar() {
 		const progressBar = $('#page-progression');
 		let winScrollPostion = Env.$window.scrollTop(0);
-		const winHeight = Env.$window.height();
-		const docBottom = Env.$document.height();
+		let winHeight = Env.$window.height();
+		let docBottom = Env.$document.height();
 
 		let diff = docBottom - winHeight;
 		let percent;
+
+		const resize = () => {
+			winHeight = Env.$window.height();
+			docBottom = Env.$document.height();
+		};
 
 		TweenMax.set(progressBar, { width: winScrollPostion} );
 
 		Env.$window.on('scroll', function() {
 
+			resize();
+
 			winScrollPostion = $(this).scrollTop();
-			// diff = docBottom - $(this).height()
+			diff = docBottom - winHeight;
 
 			percent = (((100/diff) * winScrollPostion) << 0) + "%";
 
@@ -80,12 +87,17 @@ class HomePage {
 		        preview = new PIXI.Sprite( tp );
 
 		        preview.anchor.x = 0;
-		    
-		        displacementSprite = PIXI.Sprite.fromImage('https://res.cloudinary.com/dvxikybyi/image/upload/v1486634113/2yYayZk_vqsyzx.png');
+		    	
+		    	// new -- https://res.cloudinary.com/dcozrqiyb/image/upload/v1537938527/gradient_large.png
+		    	// original -- https://res.cloudinary.com/dvxikybyi/image/upload/v1486634113/2yYayZk_vqsyzx.png
+		        displacementSprite = PIXI.Sprite.fromImage('https://res.cloudinary.com/dcozrqiyb/image/upload/v1537939713/ripple_2.jpg');
+
+		        
 		        displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
 		       	displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
 
+		       	// displacementFilter.scale.x = 0
 		        displacementSprite.scale.y = 0.6;
 		        displacementSprite.scale.x = 0.6;
 

@@ -11,7 +11,6 @@ module.exports = {
 	resolve: {
 		alias : {
 			"animation.gsap": path.resolve(__dirname, 'node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'),
-			"nicescroll": path.resolve(__dirname, 'node_modules/jquery.nicescroll/jquery.nicescroll.js'),
 			"debug.addIndicators": path.resolve(__dirname, 'node_modules/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js')
 		}
     },

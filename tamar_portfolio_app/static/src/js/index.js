@@ -16,7 +16,7 @@ class App {
 
         // Signature
         if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-            const args = ['\n %c The Real Tamar Halpern. :-) http://tamarhalpern.nyc/ \n\n', 'background: #000000; padding:5px 0;color: #FFFFFF;'];
+            const args = ['\n %c The portfolio of the artist, Tamar Halpern. http://tamarhalpern.nyc/ \n\n', 'background: #000000; padding:5px 0; color: #ff4828;'];
             
             window.console.log.apply(console, args);
 
