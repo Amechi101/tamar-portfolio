@@ -17,7 +17,7 @@
 	        </div>
 	   
 	        <div class="about-menu__intro-desc-bio">
-	        	<p>{{ about_description }}</p>
+	        	<p>{% if about_description %}{{ about_description }}{% endif %}</p>
 	        </div>
     	</div>
 	</section>

@@ -1,5 +1,5 @@
 {% load i18n %}
 
-
-{{ google_analytics_code|safe|escape }}
-
+{% if google_analytics_code %}
+	{{ google_analytics_code|safe|escape }}
+{% endif %}
