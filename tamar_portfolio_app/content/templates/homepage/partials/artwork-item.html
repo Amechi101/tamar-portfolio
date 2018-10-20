@@ -2,7 +2,7 @@
 {% load cloudinary %}
 
 <!--//start: work grid item: {{ artwork.name }} //-->
-<article class="homepage__workGrid-item {% if artwork.video %}homepage__workGrid-item--landscape{% endif %}">
+<article class="homepage__workGrid-item{% if artwork.video %} homepage__workGrid-item--landscape{% endif %}">
     <figure>
         <div class="homepage__workGrid-img-container ">
         	{% if artwork.image and not artwork.video %}

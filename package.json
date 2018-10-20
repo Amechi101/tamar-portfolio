@@ -2,7 +2,7 @@
   "name": "tamar-portfolio",
   "description": "Tamar Portfolio",
   "scripts": {
-    "dev": "npm run webpack:dev & npm run server:dev:start && npm run css:dev",
+    "dev": "npm run css:dev & npm run server:dev:start",
     "prod": "npm run webpack:prod & npm run css:prod",
     "webpack:dev": "webpack --config webpack.dev.js",
     "server:dev:start": "concurrently --kill-others \"python manage.py runserver\" \"npm run webpack:dev\"",
