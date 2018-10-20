@@ -6,7 +6,11 @@
     	<div class="about-menu__intro-img-box">
         	<div class="about-menu__intro-img-main lg">
             	<div class="about-menu__intro-img-cover c-mask">
-            		<img src="{% static 'dist/img/tamar-halpern-bio.jpg' %}">
+            		{% if debug %}
+            			<img src="{% static 'dist/img/tamar-halpern-bio.jpg' %}">
+            		{% else %}
+            			<img src="https://res.cloudinary.com/dcozrqiyb/image/upload/q_auto/v1540010062/tamar-halpern-bio.jpg">
+            		{% endif %}
             	</div>
         	</div>
     	</div>

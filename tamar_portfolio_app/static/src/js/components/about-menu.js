@@ -3,7 +3,7 @@ import $ from 'jquery';
 import { TweenMax, TimelineMax, CSSPlugin } from 'gsap';
 import CSSRulePlugin from "gsap/CSSRulePlugin";
 import ScrollMagic from 'scrollmagic';
-import "animation.gsap";
+import 'imports-loader?define=>false!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
 
 const plugins = [CSSPlugin];
 

@@ -1,0 +1,10 @@
+{
+	"presets": [
+    	"@babel/preset-env"
+    ],
+    "ignore": [
+      "node_modules",
+      "tamar_portfolio_app/static/dist/**.js",
+      "tamar_portfolio_app/static/dist/vendors/**.js"
+    ]
+}

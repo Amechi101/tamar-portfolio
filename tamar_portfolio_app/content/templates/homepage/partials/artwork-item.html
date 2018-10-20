@@ -6,7 +6,7 @@
     <figure>
         <div class="homepage__workGrid-img-container ">
         	{% if artwork.image and not artwork.video %}
-            	<img alt="{{ artwork.name }}" src="{% cloudinary_url artwork.image %}">
+            	<img alt="{{ artwork.name }}" src="{% cloudinary_url artwork.image GENERAL_IMAGES %}">
             {% endif %}
 
             {% if artwork.video %}

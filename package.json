@@ -2,32 +2,27 @@
   "name": "tamar-portfolio",
   "description": "Tamar Portfolio",
   "scripts": {
-    "webpack-config": "webpack --config webpack.config.js",
-    "server-dev-start": "concurrently --kill-others \"python manage.py runserver\" \"npm run webpack-config\""
+    "dev": "npm run webpack:dev & npm run server:dev:start && npm run css:dev",
+    "prod": "npm run webpack:prod & npm run css:prod",
+    "webpack:dev": "webpack --config webpack.dev.js",
+    "server:dev:start": "concurrently --kill-others \"python manage.py runserver\" \"npm run webpack:dev\"",
+    "css:dev": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -o tamar_portfolio_app/static/dist/css/bundle.css",
+    "webpack:prod": "webpack --config webpack.prod.js",
+    "css:prod": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -u cssnano -o tamar_portfolio_app/static/dist/css/min.bundle.css"
   },
   "author": "Amechi Egbe",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "babelify": "^8.0.0",
-    "browserify": "^16.2.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "autoprefixer": "^9.2.1",
+    "babel-loader": "^8.0.4",
     "concurrently": "^3.6.1",
+    "cssnano": "^4.1.5",
     "imports-loader": "^0.8.0",
+    "postcss-cli": "^6.0.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
-  "babel": {
-    "presets": [
-      "env",
-      "stage-3"
-    ],
-    "ignore": [
-      "node_modules",
-      "tamar_portfolio_app/static/dist/**.js",
-      "tamar_portfolio_app/static/dist/vendors/**.js"
-    ]
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
     "debounce": "^1.2.0",
