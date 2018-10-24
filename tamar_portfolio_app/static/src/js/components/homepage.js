@@ -14,7 +14,6 @@ class HomePage {
 		this.init();
 	}
 	init() {
-		this.heroSection();
 		this.workSection();
 		this.pageProgressBar();
 	}
@@ -50,88 +49,6 @@ class HomePage {
 			// console.log(percent, 'percent');
 		});
 	}
-	heroSection() {
-
-		let canvas;
-		let count = 0;
-		let raf;
-		let tp;
-		let preview;
-		let displacementSprite;
-		let displacementFilter;
-		let stage;
-
-
-		[].slice.call(document.querySelectorAll('.homepage__hero-visual')).forEach((el) => {
-			
-			let playgroundHeight = Math.round(el.children[0].clientHeight);
-			let playgroundWidth = Math.round(el.children[0].clientWidth);
-
-			let renderer = PIXI.autoDetectRenderer(986, 548, {transparent:true});
-
-			// const resize = () => {
-
-			// 	el.children[1].height = Math.round(el.children[0].clientHeight)
-			// 	el.children[1].width = Math.round(el.children[0].clientWidth)
-			// }
-		
-			renderer.autoResize = true;
-
-			const setScene = ( url ) => {
-				el.appendChild(renderer.view);
-
-		        stage = new PIXI.Container();
-
-		        tp = PIXI.Texture.fromImage( url );
-		        
-		        preview = new PIXI.Sprite( tp );
-
-		        preview.anchor.x = 0;
-		    	
-		    	// new -- https://res.cloudinary.com/dcozrqiyb/image/upload/v1537938527/gradient_large.png
-		    	// original -- https://res.cloudinary.com/dvxikybyi/image/upload/v1486634113/2yYayZk_vqsyzx.png
-		        displacementSprite = PIXI.Sprite.fromImage('https://res.cloudinary.com/dcozrqiyb/image/upload/v1537939713/ripple_2.jpg');
-
-		        
-		        displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-
-		       	displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
-
-		       	// displacementFilter.scale.x = 0
-		        displacementSprite.scale.y = 0.6;
-		        displacementSprite.scale.x = 0.6;
-
-
-		        stage.addChild(displacementSprite);
-
-		        stage.addChild(preview);
-
-		        // window.addEventListener('resize', resize, false);
-		        // resize();
-
-				animate();
-			}
-
-
-			const animate = () => {
-			    raf = requestAnimationFrame( animate );
-			            
-			    displacementSprite.x = count*10;
-				displacementSprite.y = count*10;
-
-				count += 0.05;
-
-			    stage.filters = [displacementFilter];
-
-			    renderer.render(stage);
-
-			    canvas = el.querySelector('canvas');
-			}
-			
-			setScene(el.dataset.heroImage);
-		});
-
-	}
 	workSection() {
 		
 		const ScrollRevealController = ScrollReveal({
@@ -157,6 +74,20 @@ class HomePage {
 
     		ScrollRevealController.reveal(yearSectionWrapper);
     		// }	
+    	});
+
+
+    	$('.homepage__workGrid-img-container').each(function() {
+    		var artworkImgContainer = $(this);
+    		var artworkImg = artworkImgContainer.find('img');
+    		var artWorkImgNaturlWidth = artworkImg.prop('naturalWidth');
+    		var artWorkImgNaturlHeight = artworkImg.prop('naturalHeight');
+
+    		if(artworkImg.prop('naturalWidth') !== undefined ) {
+    			if(artWorkImgNaturlWidth > artWorkImgNaturlHeight) {
+    				artworkImgContainer.addClass('homepage__workGrid-item--landscape');
+    			}
+    		}
     	});
 
 	}

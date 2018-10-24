@@ -45,8 +45,6 @@ class PageLoading {
 
 		const doneLoading = () => {
 			Env.$window.on('load', function() {
-			
-				console.log('page loaded!'); 
 				       
 				this.pageLoaderAnimations();
 

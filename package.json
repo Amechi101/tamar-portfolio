@@ -6,7 +6,7 @@
     "prod": "npm run webpack:prod & npm run css:prod",
     "webpack:dev": "webpack --config webpack.dev.js",
     "server:dev:start": "concurrently --kill-others \"python manage.py runserver\" \"npm run webpack:dev\"",
-    "css:dev": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -o tamar_portfolio_app/static/dist/css/bundle.css",
+    "css:dev": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -o tamar_portfolio_app/static/dist/css/bundle.css --watch",
     "webpack:prod": "webpack --config webpack.prod.js",
     "css:prod": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -u cssnano -o tamar_portfolio_app/static/dist/css/min.bundle.css"
   },

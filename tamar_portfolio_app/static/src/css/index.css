@@ -1,3 +1,7 @@
+#djDebugToolbarHandle {
+    display: none !important;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -1064,19 +1068,19 @@ img, video {
     margin-bottom: 35vw;
 }
 
-.homepage__year:first-child {
+/*.homepage__year:first-child {
     margin-top: 11em;
-}
+}*/
 
 .homepage__year:last-child {
     margin-bottom: 8vw;
 }
 
-@media screen and (min-width: 800px) {
+/*@media screen and (min-width: 800px) {
   .homepage__year:first-child {
       margin-top: 6em;
    }
-}
+}*/
 
 @media screen and (min-width: 768px) {
     .homepage__year {
@@ -1086,10 +1090,17 @@ img, video {
 
 .homepage__hero {
     position:relative;
-    margin-bottom:10em;
     height:100%;
+    padding-top: 11em;
+    padding-bottom:10em;
+    background: #f0f0f0;
 }
 
+@media screen and (min-width: 800px) {
+    .homepage__hero {
+        padding-top: 6em;
+   }
+}
 
 @media screen and (min-width: 768px) {
     .homepage__hero .container {
@@ -1130,8 +1141,8 @@ img, video {
     left: 0;
     width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: contain;
+    object-fit: contain;
 }
 
 
@@ -1312,12 +1323,12 @@ img, video {
     max-width: 500px;
 }
 
-.homepage__workGrid-item--landscape {
-  max-width: 100%;
-}
+/*.homepage__workGrid-item--landscape {
+    max-width: 100%;
+}*/
 
-.homepage__workGrid-item--landscape .homepage__workGrid-img-container  {
-  padding-bottom: 75%;
+.homepage__workGrid-img-container.homepage__workGrid-item--landscape {
+    padding-bottom: 75%;
 }
 
 .homepage__workGrid-img-container {
@@ -1332,10 +1343,10 @@ img, video {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: auto;
     height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover; 
+    -o-object-fit: contain;
+    object-fit: contain; 
 }
 
 

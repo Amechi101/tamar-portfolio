@@ -9,6 +9,7 @@ import AboutMenu from './components/about-menu.js';
 import HomePage from './components/homepage.js';
 import Cursor from './components/cursor.js';
 import PageLoding from './components/page-loading.js';
+import PixiPlugin from './components/pixi-plugin.js';
 
 
 class App {
@@ -33,21 +34,39 @@ class App {
     }
     initComponents() {
         // page loading
-        const page_loading = new PageLoding();
+        new PageLoding();
 
         // homepage
-        const homepage = new HomePage();
+        new HomePage();
         
         // about menu
-        const about_menu = new AboutMenu({
+        new AboutMenu({
             triggerEl: 'about-menu-trigger', 
             containerEl: 'about-menu'
         });
 
         // index menu
-        const index_menu = new IndexMenu({
+        new IndexMenu({
             triggerEl: 'index-menu-trigger', 
             containerEl: 'index-menu'
+        });
+
+
+        document.querySelectorAll('.homepage__hero-visual').forEach(function(el) {
+            var img = el.querySelector('img');
+            
+            new PixiPlugin({
+                options: {
+                    element:el,
+                    stageWidth: img.naturalWidth,
+                    stageHeight: img.naturalHeight,
+                    pixiSprites: [ img.getAttribute('src') ],
+                    displaceScale: [800, 500],
+                    displacementImage: 'https://res.cloudinary.com/dcozrqiyb/image/upload/v1537939713/ripple_2.jpg',
+                    autoPlay: true,
+                    autoPlaySpeed: [0.3, 0.3]
+                }
+            })
         });
 
         // cursor
