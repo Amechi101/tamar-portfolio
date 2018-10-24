@@ -70,7 +70,7 @@ class App {
         });
 
         // cursor
-        const cursor = new Cursor();
+        new Cursor();
     }
 }
 

@@ -76,15 +76,25 @@ class HomePage {
     		// }	
     	});
 
+    	
+    	$('.homepage__workGrid-img-container').each(function(index) {
 
-    	$('.homepage__workGrid-img-container').each(function() {
+    		index += 1
+
     		var artworkImgContainer = $(this);
     		var artworkImg = artworkImgContainer.find('img');
-    		var artWorkImgNaturlWidth = artworkImg.prop('naturalWidth');
-    		var artWorkImgNaturlHeight = artworkImg.prop('naturalHeight');
+    		var artWorkImgNaturlWidth = artworkImg.attr('data-width', artworkImg.prop('naturalWidth'));
+    		var artWorkImgNaturlHeight = artworkImg.attr('data-height', artworkImg.prop('naturalHeight'));
 
-    		if(artworkImg.prop('naturalWidth') !== undefined ) {
-    			if(artWorkImgNaturlWidth > artWorkImgNaturlHeight) {
+    		// console.log(artWorkImgNaturlWidth.data('width') + index);
+
+    		if(artWorkImgNaturlWidth.data('width') !== undefined ) {
+    			var artWorkImgNaturlWidthAdditive = artWorkImgNaturlWidth.data('width') + index;
+    			var artWorkImgNaturlHeightAdditive = artWorkImgNaturlWidth.data('height') + index;
+
+    			// console.log(artWorkImgNaturlWidthAdditive, artWorkImgNaturlHeightAdditive);
+
+    			if(artWorkImgNaturlWidthAdditive > artWorkImgNaturlHeightAdditive) {
     				artworkImgContainer.addClass('homepage__workGrid-item--landscape');
     			}
     		}
