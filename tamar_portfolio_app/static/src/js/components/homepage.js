@@ -90,7 +90,7 @@ class HomePage {
 
     		if(artWorkImgNaturlWidth.data('width') !== undefined ) {
     			var artWorkImgNaturlWidthAdditive = artWorkImgNaturlWidth.data('width') + index;
-    			var artWorkImgNaturlHeightAdditive = artWorkImgNaturlWidth.data('height') + index;
+    			var artWorkImgNaturlHeightAdditive = artWorkImgNaturlHeight.data('height') + index;
 
     			// console.log(artWorkImgNaturlWidthAdditive, artWorkImgNaturlHeightAdditive);
 

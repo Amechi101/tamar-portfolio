@@ -55,7 +55,7 @@ class App {
         document.querySelectorAll('.homepage__hero-visual').forEach(function(el) {
             var img = el.querySelector('img');
             
-            var test = new PixiPlugin({
+            new PixiPlugin({
                 options: {
                     element:el,
                     stageWidth: img.naturalWidth,
@@ -67,8 +67,6 @@ class App {
                     autoPlaySpeed: [0.3, 0.3]
                 }
             })
-
-            console.log(test);
         });
 
         // cursor
