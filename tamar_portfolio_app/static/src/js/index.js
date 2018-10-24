@@ -58,7 +58,7 @@ class App {
             new PixiPlugin({
                 options: {
                     element:el,
-                    stageWidth: img.naturalWidth,
+                    stageWidth: 1000,
                     stageHeight: img.naturalHeight,
                     pixiSprites: [ img.getAttribute('src') ],
                     displaceScale: [800, 500],
