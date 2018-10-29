@@ -11,7 +11,6 @@ def site_processor(request):
 def consts(request):
     return dict(
         GENERAL_IMAGES = dict(
-            format="jpg", 
             transformation=[
                 dict(
                     crop="fit", 

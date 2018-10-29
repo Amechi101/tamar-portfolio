@@ -57,11 +57,12 @@ class ArtworkDetail(models.Model):
 
 	dimensions = models.CharField(max_length=255, null=True, blank=True, verbose_name='Artwork Dimensions' )
 
-	image = CloudinaryField('Artwork Image', null=True, blank=True,
-	help_text='Maximum image size is 10 MB' )
-
-	video = CloudinaryField('Artwork Video', null=True, blank=True, resource_type='video', 
-		help_text='Maximum video size is 100 MB and accepted video types are mp4, webm, ogg, avi' )
+	image = CloudinaryField('Artwork Image or Video', null=True, blank=True, resource_type='auto', 
+		help_text='''
+		- Maximum image size is 10 MB. \n\n 
+		- Maximum video size is 100 MB. \n\n
+		- All image and video formats are accepted.
+		''' )
 
 
 	def __str__(self):

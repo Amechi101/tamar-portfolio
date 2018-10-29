@@ -1094,7 +1094,9 @@ img, video {
     padding-top: 11em;
     padding-bottom:10em;
     background: #f0f0f0;
+    /*#fcf8f8;*/
 }
+
 
 @media screen and (min-width: 800px) {
     .homepage__hero {
