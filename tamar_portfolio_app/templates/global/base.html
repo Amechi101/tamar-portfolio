@@ -60,12 +60,17 @@
                 </div> 
             </div>
         </div>
+
+        <!--======== Page Sweeper ========-->
+        <div class="page-sweeper"></div>
    
         <!--======== Header ========-->
         {% include "partials/header.html" %}
 
         <!--======== Work ========-->
         {% block layout %}{% endblock %}
+
+        {% block footer %}
 
         <!-- <footer class="footer">
             <div class="container">
@@ -80,9 +85,10 @@
             </div>
         </footer> -->
 
+        {% endblock %}
+
         <!--======== Menus ========-->
         {% include "partials/about_menu.html" %}
-        {% include "partials/index_menu.html" %}
 
         <!-- <div class="contact">
             <a href="#">Contact</a>

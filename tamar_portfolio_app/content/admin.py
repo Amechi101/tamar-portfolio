@@ -12,6 +12,8 @@ class CurriculumVitaeDetailInline(admin.StackedInline):
 @admin.register(ArtworkYear)
 class  ArtworkYearAdmin(admin.ModelAdmin):
 
+	readonly_fields = ['slug',]
+
 	list_display = ['cover_title', 'year']
 
 	search_fields = ['year',]

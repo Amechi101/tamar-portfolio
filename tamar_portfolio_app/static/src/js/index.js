@@ -3,7 +3,7 @@ import domready from 'domready'
 
 // modules
 import Env from './base/env.js'
-import { pageScrollTop, tweenMaxDefaultEase } from './components/global.js';
+import { tweenMaxDefaultEase } from './components/global.js';
 import IndexMenu from './components/index-menu.js';
 import AboutMenu from './components/about-menu.js';
 import HomePage from './components/homepage.js';

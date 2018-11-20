@@ -1,13 +1,14 @@
-from django.urls import path
+from django.urls import path, include
 
-
-from .views import HomePageView
+from .views import ArtWorkDetailView
 
 urlpatterns = [
 
-	# HOMEPAGE
-    path('', HomePageView.as_view(), name='home'),
+    path('', include(([
 
+        path('artwork/<slug:slug>', ArtWorkDetailView.as_view(), name='artwork_detail'),
+   
+    ], 'tamar_portfolio_app'), namespace='artworks')),
 ]
 
 

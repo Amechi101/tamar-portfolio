@@ -15,11 +15,12 @@ class PageLoading {
     	this.workSectionYears = $('.homepage__year').map(function(index, element) {
 			const year = $(element).data('work-year');
 
-			return [$('<span class="u-block">' + year + '</span>')]
+			return [$('<span style="position: absolute; left: 0; right: 0; transform: translateY(-50%);" class="u-block">' + year + '</span>')]
 		}).get().reverse();
 
 
 		this.init();
+		this.pageTransitions();
 	}
 	init() {
 
@@ -61,6 +62,44 @@ class PageLoading {
 		
 
 	}
+	pageTransitions() {
+
+		//page sweeper
+		var pageSweeper = $('.page-sweeper');
+		
+		const pageLinkTransition = (e) => {
+	    	setTimeout(() => {
+		        TweenMax.to(pageSweeper, .5, {autoAlpha:1, y:0 }), setTimeout(() => {
+	                location.href = e
+	            }, 500)
+       		}, 10);
+	    };
+		
+		$('a').on('click', function( e ) {
+			
+
+			var thisTarget = $(this).attr("target"), 
+            thisHref = $(this).attr("href");
+        
+		    var linkHash = /(#).*/gi;
+		    var linkHashMatch = thisHref.match(linkHash);
+
+	        function CheckHash() {
+
+	            if ( linkHashMatch != null ) {
+
+	                return linkHashMatch[0];
+	            
+	            } else {
+
+	                return '#';
+	            }
+	        }
+
+			if("_blank" != thisTarget && -1 == thisHref.indexOf("mailto") && thisHref != "javascript:void(0);" && 
+        	(e.preventDefault(), CheckHash() != thisHref && pageLinkTransition(thisHref)));
+		});
+	}
 	pageLoaderAnimations() {
 
 		const preLoaderWrap = $('.preloader-wrap');
@@ -101,7 +140,7 @@ class PageLoading {
 
 									const preloaderYears =  preLoaderWrap.find('.years');
 
-									const tweenEl = $(element).appendTo(preloaderYears);
+									$(element).appendTo(preloaderYears);
 
 									// console.log(tweenEl, 'tween element');
 
@@ -117,7 +156,7 @@ class PageLoading {
 
 									// const tweenEl = $(element).remove();
 
-									const tweenEl = TweenMax.to($(element), .7, { css: { autoAlpha: 0, display: 'none'} });
+									TweenMax.to($(element), .7, { css: { autoAlpha: 0, } });
 
 									// console.log(tweenEl, 'remove element');
 
@@ -127,7 +166,7 @@ class PageLoading {
 
 							onCompleteParams: ["{self}"]
 
-						}, 3)
+						}, 1.5)
 		        ]
 	    	}),
 
@@ -142,8 +181,6 @@ class PageLoading {
 			tweens: pageLoaderTweens,
 
 			paused: true,
-
-		    stagger: 0.7,
                 	
             align: 'sequence'
     	});

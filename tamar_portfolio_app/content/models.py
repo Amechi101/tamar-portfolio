@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils.encoding import python_2_unicode_compatible
+from django.template.defaultfilters import slugify
 
 from cloudinary.models import CloudinaryField
 
@@ -26,8 +27,20 @@ class ArtworkYear(TimeModel):
 
 	is_active = models.BooleanField(_('Active'), default=True, help_text='Check means active / Uncheck means unactive')
 
+	slug = models.SlugField(_('Slug'), max_length=255, blank=True)
+
 	def __str__(self):
 		return "{0}".format(self.year)
+
+	def get_absolute_url(self):
+		return reverse('artworks:artwork_detail', args=[self.slug])
+
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.year)
+
+		self.full_clean()
+
+		super(ArtworkYear, self).save(*args, **kwargs)
 
 	# Metadata
 	class Meta: 
@@ -36,6 +49,8 @@ class ArtworkYear(TimeModel):
 		verbose_name_plural = _('Artworks')
 
 		ordering = ['-year']
+
+
 
 
 @python_2_unicode_compatible
@@ -197,10 +212,10 @@ class GeneralInformation(models.Model):
 
 	public_email = models.EmailField(max_length=200, null=True, blank=True, verbose_name='Email', help_text='Public facing contact email.')
 
-	about_description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='About Description', help_text="Max length 1000 characters")
+	about_description = models.TextField(max_length=5000, null=True, blank=True, verbose_name='About Description', help_text="Max length 1000 characters")
 
-	google_analytics = models.TextField(max_length=1000, null=True, blank=True, verbose_name='Google Analytics Code', 
-		help_text="Paste your google analytics code here")
+	google_analytics = models.CharField(max_length=255, null=True, blank=True, verbose_name='Google Analytics Code', 
+		help_text="Paste your google analytics code here, ex: UA-XXXXXXXXX-X")
 
 	def __str__(self):
 		return "{0}".format(self.pk)

@@ -1,6 +1,6 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 
-from .models import ArtworkYear, CurriculumVitaeCatgories, Gallery, Collection, GeneralInformation
+from .models import ArtworkYear, ArtworkDetail, CurriculumVitaeCatgories, Gallery, Collection, GeneralInformation
 
 class HomePageView(TemplateView):
 
@@ -21,8 +21,28 @@ class HomePageView(TemplateView):
 
 		kwargs['collections'] = Collection.objects.all()
 		kwargs['galleries'] = Gallery.objects.all()
-		kwargs['artwork_year_list'] = ArtworkYear.objects.all().prefetch_related('years')
+		kwargs['artwork_year_list'] = ArtworkYear.objects.all()
 		kwargs['cv_list'] = CurriculumVitaeCatgories.objects.all().prefetch_related('categories')
+
+		return super().get_context_data(**kwargs)
+
+
+
+class ArtWorkDetailView(DetailView):
+
+	model = ArtworkYear
+
+	template_name = 'artwork/artwork-detail.html'
+
+	def get_context_data(self, **kwargs):
+
+		artwork_obj = self.get_object()
+
+		kwargs['artwork_year_list'] = ArtworkYear.objects.all()
+
+		kwargs['artwork_year'] = artwork_obj
+
+		kwargs['artworks'] = ArtworkDetail.objects.filter(artwork_year=artwork_obj)
 
 		return super().get_context_data(**kwargs)
 

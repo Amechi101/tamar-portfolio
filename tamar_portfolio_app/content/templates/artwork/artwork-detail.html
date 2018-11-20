@@ -1,0 +1,72 @@
+{% extends "global/layout.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+{% load cloudinary %}
+{% load evenModulo %}
+
+
+{% block content %}
+
+{% if artwork_year.is_active %}
+    <!--//start: year: {{ artwork_year.year }} //-->
+    <div class="homepage__year" data-work-year="{{ artwork_year.year }}">
+        <section class="homepage__hero">
+            <div class="container">
+                <div class="homepage__hero-wrapper">
+                    <div class="homepage__hero-visual homepage__hero-visual--wideLandscape" 
+                    data-alt="{{ artwork_year.cover_title }}" data-hero-image="{% cloudinary_url artwork_year.cover_image GENERAL_IMAGES %}">
+                    </div>
+                    <div class="homepage__hero-TitleContainer">
+                        <div class="homepage__title">
+                            <h2 class="title title--headline"><span class="u-block">{{ artwork_year.year }}</span></h2>
+                        </div>
+                    </div>
+                    <div class="homepage__hero-TitleContainer-bottom homepage__hero-TitleContainer-bottom--block">
+                        <div class="homepage__hero-TitleContainer-bottom__inner home__headerIntroContainer">
+                            <p class="title title--medium">{{ artwork_year.cover_title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+        <section class="homepage__workContainer">
+            <div class="container">
+                <div class="homepage__workContent">  
+                    <div class="homepage__workGrid">
+                        
+                        <!--//start: work grid col: even forloop //-->
+                        <div class="homepage__workGrid-col col-1">
+                            {% for artwork in artworks %} 
+                                {% if forloop.counter0|evenModulo == 0 %} 
+                                    {% include "artwork/partials/artwork-item.html" %}
+                                {% endif %}
+                            {% endfor %}
+                        </div> <!--//end: work grid col: even forloop //-->
+
+                        <!--//start: work grid item: odd forloop //-->
+                        <div class="homepage__workGrid-col col-2">
+                            {% for artwork in artworks %} 
+                                {% if forloop.counter0|evenModulo == 1 %} 
+                                    {% include "artwork/partials/artwork-item.html" %}
+                                {% endif %}
+                            {% endfor %}
+                        </div> <!--//end: work grid item: odd forloop //-->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> <!--//end: year: {{  artwork_year.year }} //-->
+{% endif %}
+    
+{% endblock %}
+
+
+{% block footer %}
+    {% include "partials/index_menu.html" %}
+{% endblock %}
+         
+
+

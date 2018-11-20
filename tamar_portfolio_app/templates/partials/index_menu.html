@@ -1,20 +1,15 @@
 {% load i18n %}
 
-<div id="index-menu-trigger" class="index-menu-button">
-	<span class="tline"></span>
-	<span class="mline"></span>
-	<span class="bline"></span>
-</div>
-
-<div class="menu index-menu">
+<div class="index-menu">
 	<div class="index-menu-main">
 		<div class="index-menu-cover">
 			<div class="index-menu-container">
+				<h2>Index</h2>
 				<ul class="index-menu-list">
 					{% for artwork_year in artwork_year_list %}
 						<li class="index-menu-year">
-							<a href="javascript:void(0);" data-cover-title="{{ artwork_year.cover_title }}" data-index-year="{{ artwork_year.year }}">
-							{{ artwork_year.year }}
+							<a href="{% url 'artworks:artwork_detail' artwork_year.slug %}">
+								{{ artwork_year.year }}
 							</a>
 						</li>
 					{% endfor %}
