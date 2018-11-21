@@ -5,8 +5,12 @@
 <article class="homepage__workGrid-item">
     <figure>
         <div class="homepage__workGrid-img-container">
-        	{% if artwork.image.resource_type == 'image' %}
+        	{% if artwork.image.resource_type == 'image' and not artwork.image.format == 'gif'  %}
             	<img alt="{{ artwork.name }}" src="{% cloudinary_url artwork.image GENERAL_IMAGES %}">
+            {% endif %}
+
+            {% if artwork.image.format == 'gif'  %}
+                <img alt="{{ artwork.name }}" src="{% cloudinary_url artwork.image %}">
             {% endif %}
 
             {% if artwork.image.resource_type == 'video' %}
