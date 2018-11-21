@@ -9,30 +9,14 @@ import Env from '../base/env.js'
 
 
 class PageLoading {
-
 	constructor() {
-
-    	this.workSectionYears = $('.homepage__year').map(function(index, element) {
-    		
-    		var artwork_info;
-
-    		if( Env.$body.attr('id') === 'homepage' ) {
-    			artwork_info = $(element).data('work-year');
-    		
-    		} else if ( Env.$body.attr('id') === 'artworkDetail' ){
-    			artwork_info = $(element).data('work-title');
-    		}
-			
-
-			return [$('<span style="position: absolute; left: 0; right: 0; transform: translateY(-50%);" class="u-block">' + artwork_info + '</span>')]
-		}).get().reverse();
-
-
 		this.init();
-		this.pageTransitions();
 	}
 	init() {
-
+		this.pageTransitions();
+		this.pageLoadingProgress();
+	}
+	pageLoadingProgress() {
 		const stat = document.getElementById("progstat");
 		const img = document.images
 		const totalImages = img.length;
@@ -47,6 +31,7 @@ class PageLoading {
 			perc = ( ((100/totalImages) * imageCount) << 0 ) + "%";
 
 			stat.innerHTML = perc;
+
 			
 			if( imageCount === totalImages ) {
 				return doneLoading();
@@ -61,19 +46,15 @@ class PageLoading {
 			}.bind(this));
 		};
 
-	    
-	    for(var i=0; i < totalImages; i++) {
+		for(let i=0; i < totalImages; i++) {
 	    	tImg = new Image();
 	      	tImg.onload  = imgLoaded;
 	      	tImg.onerror = imgLoaded;
 	     	tImg.src = img[i].src;
-	    }    
-		
-
+	    } 
 	}
 	pageTransitions() {
 
-		//page sweeper
 		var pageSweeper = $('.page-sweeper');
 		
 		const pageLinkTransition = (e) => {
@@ -86,7 +67,6 @@ class PageLoading {
 		
 		$('a').on('click', function( e ) {
 			
-
 			var thisTarget = $(this).attr("target"), 
             thisHref = $(this).attr("href");
         
@@ -112,30 +92,29 @@ class PageLoading {
 	pageLoaderAnimations() {
 
 		const preLoaderWrap = $('.preloader-wrap');
-
 		const logo = $('.header__logo--name');
-
 		const aboutMenu = $('.header__about-menu--aboutText');
-
 		const workSectionTitle = $('.homepage__title h2')
-
 		const workSectionImage = $('.homepage__hero-visual canvas');
-
 		const workSectionSubTitle = $('.homepage__hero-TitleContainer-bottom p');
-
 		const indexMenu = $('.index-menu-button');
 
 		TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage], { opacity: 0 } );
 
-		const pageLoaderTweens = [
+		let workSectionYears, workSectionTimeline = '';
 
-			TweenMax.to($('.pre-loadText'), .7, { css: { autoAlpha:0, display: 'none'} }),
+		if ( Env.$body.attr('id') === 'artworkDetail' ){
+    		workSectionYears = $('.homepage__year').map(function(index, element) {
+    		
+	    		const artwork_year = $(element).data('work-year');
+	    		
+    			return [$('<span class="u-block">' + artwork_year + '</span>')]
+    		}).get().reverse();
 
-			new TimelineMax({ 
-
+    		workSectionTimeline = new TimelineMax({ 
 				tweens:[
 
-		   			TweenMax.staggerFromTo(this.workSectionYears, 1, 
+		   			TweenMax.staggerFromTo(workSectionYears, 1, 
 		   				{
 		   					autoAlpha: 0
 		   				}, 
@@ -177,8 +156,14 @@ class PageLoading {
 
 						}, 1.5)
 		        ]
-	    	}),
+	    	});
+    	}
 
+		const pageLoaderTweens = [
+
+			TweenMax.to($('.pre-loadText'), .7, { css: { autoAlpha:0, display: 'none'} }),
+
+			workSectionTimeline,
 
 			TweenMax.to(preLoaderWrap, .7, { css: { autoAlpha:0, display: 'none'} }),
 

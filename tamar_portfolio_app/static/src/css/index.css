@@ -221,7 +221,6 @@ html.webkit .cta:not(button) {
 html.webkit .cta:not(button) {
   background-image: linear-gradient(to right, #fff 50%, #232323 50%), linear-gradient(to right, #232323 50%, transparent 50%);
 }
-.cta.is-active,
 .cta:focus,
 .cta:hover {
   color: #fff !important;
@@ -229,7 +228,6 @@ html.webkit .cta:not(button) {
 .cta:focus {
   background-position: 50% 0, 50% 0;
 }
-.cta.is-active,
 .cta:hover {
   background-position: 0% 0, 0% 0;
 }
@@ -335,6 +333,20 @@ html.webkit .cta:not(button) {
 ** Page Loading **
 
 ***********************************/
+.page-sweeper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    transform-origin: 100% 0;
+    opacity:0;
+    visibility: hidden;
+    background-color: #ff4828
+}
+
 .preloader-wrap {
     position: fixed;
     top: 0;
@@ -381,6 +393,13 @@ html.webkit .cta:not(button) {
 
 .preloader-elements .text .years {
     font-size: 9.0vw;
+}
+
+.preloader-elements .text .years span {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    transform: translateY(-50%);
 }
 
 

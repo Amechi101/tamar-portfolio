@@ -106,6 +106,8 @@ class ArtworkDetail(models.Model):
 		
 		verbose_name_plural = _('Artwork Details')
 
+		ordering = ['-id']
+
 
 
 @python_2_unicode_compatible
