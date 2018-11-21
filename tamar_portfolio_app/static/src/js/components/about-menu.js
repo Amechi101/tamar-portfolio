@@ -31,7 +31,7 @@ class AboutMenu extends Menu {
 					triggerElement: this, 
 					triggerHook: 'onEnter',
 					offset: 200,
-					reverse: true
+					reverse: false
 				})
 				.setTween(sectionCVTitleTween)
 				// .addIndicators()
@@ -66,7 +66,7 @@ class AboutMenu extends Menu {
 					triggerElement: this, 
 					triggerHook: 'onEnter',
 					offset: 200,
-					reverse: true
+					reverse: false
 				})
 				.setTween(polygonTimeline)
 				// .addIndicators()

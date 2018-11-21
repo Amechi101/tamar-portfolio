@@ -5,6 +5,8 @@
 {% load cloudinary %}
 {% load evenModulo %}
 
+{% block body %}homepage{% endblock %}
+
 
 {% block content %}
     {% for artwork_year in artwork_year_list %}
@@ -14,7 +16,6 @@
                 <section class="homepage__hero">
                     <div class="container">
                         <div class="homepage__hero-wrapper">
-                            <a class="artwork-detail-link" href="{% url 'artworks:artwork_detail' artwork_year.slug %}" style="display: block;">
                             <div class="homepage__hero-visual homepage__hero-visual--wideLandscape" 
                             data-alt="{{ artwork_year.cover_title }}" data-hero-image="{% cloudinary_url artwork_year.cover_image GENERAL_IMAGES %}">
                             </div>
@@ -27,8 +28,10 @@
                                 <div class="homepage__hero-TitleContainer-bottom__inner home__headerIntroContainer">
                                     <p class="title title--medium">{{ artwork_year.cover_title }}</p>
                                 </div>
+                                <div class="col home__headerActions">
+                                    <a href="{% url 'artworks:artwork_detail' artwork_year.slug  %}" class="cta">{% trans 'Discover' %} {{ artwork_year.year }}</a>
+                                </div>
                             </div>
-                        </a>
                         </div>
                     
                     </div>

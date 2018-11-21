@@ -13,9 +13,18 @@ class PageLoading {
 	constructor() {
 
     	this.workSectionYears = $('.homepage__year').map(function(index, element) {
-			const year = $(element).data('work-year');
+    		
+    		var artwork_info;
 
-			return [$('<span style="position: absolute; left: 0; right: 0; transform: translateY(-50%);" class="u-block">' + year + '</span>')]
+    		if( Env.$body.attr('id') === 'homepage' ) {
+    			artwork_info = $(element).data('work-year');
+    		
+    		} else if ( Env.$body.attr('id') === 'artworkDetail' ){
+    			artwork_info = $(element).data('work-title');
+    		}
+			
+
+			return [$('<span style="position: absolute; left: 0; right: 0; transform: translateY(-50%);" class="u-block">' + artwork_info + '</span>')]
 		}).get().reverse();
 
 
@@ -69,7 +78,7 @@ class PageLoading {
 		
 		const pageLinkTransition = (e) => {
 	    	setTimeout(() => {
-		        TweenMax.to(pageSweeper, .5, {autoAlpha:1, y:0 }), setTimeout(() => {
+		        TweenMax.to(pageSweeper, .4, {autoAlpha:1, y:0, ease: Cubic.Power3 }), setTimeout(() => {
 	                location.href = e
 	            }, 500)
        		}, 10);

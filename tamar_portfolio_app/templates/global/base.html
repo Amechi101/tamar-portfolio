@@ -43,7 +43,7 @@
         <script src="{% static 'dist/js/vendors/modernizr-custom.min.js' %}"></script>
     </head>
 
-    <body>
+    <body id="{% block body %}{% endblock %}">
         <div id="pointer"></div>
         <div id="page-progression"></div>
         
@@ -52,7 +52,7 @@
             <div class="preloader-elements">
                 <div class="text">
                     <p class="pre-loadText">
-                        <span class="u-bloxk pre-loadText-word-1">Loading</span>
+                        <span class="u-block pre-loadText-word-1">Loading</span>
                         <span class="u-block pre-loadText-word-2">Artwork.</span>
                         <span id="progstat" class="u-block">0%</span>
                     </p>
