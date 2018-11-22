@@ -137,7 +137,7 @@ a {
   transition: color 0.3s ease-out;
 }
 rect {
-    fill:var(--main-background-color);
+    fill:#ff4828;
 }
 polygon {
     fill:var(--main-background-color);

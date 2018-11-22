@@ -15,7 +15,7 @@ import Menu from '../base/menu.js'
 class AboutMenu extends Menu {
 	init() {   
 		super.init(...arguments);
-       	this.scrollingEvents();
+       	// this.scrollingEvents();
   	}
   	scrollingEvents() {
 

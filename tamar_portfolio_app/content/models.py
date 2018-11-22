@@ -214,7 +214,7 @@ class GeneralInformation(models.Model):
 
 	public_email = models.EmailField(max_length=200, null=True, blank=True, verbose_name='Email', help_text='Public facing contact email.')
 
-	about_description = models.TextField(max_length=None, null=True, blank=True, verbose_name='About Description', help_text="Max length 1000 characters")
+	about_description = models.TextField(max_length=None, null=True, blank=True, verbose_name='About Description')
 
 	google_analytics = models.CharField(max_length=255, null=True, blank=True, verbose_name='Google Analytics Code', 
 		help_text="Paste your google analytics code here, ex: UA-XXXXXXXXX-X")
