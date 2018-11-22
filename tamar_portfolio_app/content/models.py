@@ -128,7 +128,7 @@ class CurriculumVitaeCatgories(TimeModel):
 
 
 	def __str__(self):
-		return "{0}".format(self.category)
+		return "{0}".format(self.get_category_display())
 
 	# Metadata
 	class Meta: 
