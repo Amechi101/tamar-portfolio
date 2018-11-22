@@ -797,7 +797,8 @@ html.webkit .cta:not(button) {
     font-size: 5vw;
     letter-spacing: 4px;
     color: #000;
-    white-space:nowrap;
+    line-height: 1.3em;
+    /*white-space:nowrap;*/
     /* overflow: hidden; */
 }
 

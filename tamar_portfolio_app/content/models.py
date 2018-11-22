@@ -106,7 +106,7 @@ class ArtworkDetail(models.Model):
 		
 		verbose_name_plural = _('Artwork Details')
 
-		ordering = ['-id']
+		ordering = ['id']
 
 
 
@@ -119,7 +119,7 @@ class CurriculumVitaeCatgories(TimeModel):
 
 	CV_CHOICES = [ 
 		( 'Solo Exhibitions', _( 'Solo Exhibitions' ) ),
-		( 'Selected Group Exhibitions', _( 'Selected Group Exhibitions' ) ),
+		( 'Two Person and Selected Group Exhibitions', _( 'Two Person and Selected Group Exhibitions' ) ),
 		( 'Press/Publications', _( 'Press/Publications' ) ),
 		( 'Artist Books/Catalogs', _( 'Artist Books/Catalogs' ) )
 	]
