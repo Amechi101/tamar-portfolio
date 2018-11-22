@@ -16,6 +16,7 @@
                     <div class="homepage__hero-wrapper">
                         <div class="homepage__hero-visual homepage__hero-visual--wideLandscape" 
                         data-alt="{{ artwork_year.cover_title }}" data-hero-image="{% cloudinary_url artwork_year.cover_image GENERAL_IMAGES %}">
+                            <img alt="{{ artwork_year.cover_title }}" src="{% cloudinary_url artwork_year.cover_image GENERAL_IMAGES %}" />
                         </div>
                         <div class="homepage__hero-TitleContainer">
                             <div class="homepage__title">

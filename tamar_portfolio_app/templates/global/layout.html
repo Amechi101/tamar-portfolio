@@ -32,7 +32,7 @@
 
 {% block layout %} 
     {% block content_wrapper %}
-        <main role="main" class="main">
+        <main id="main">
             {% block content %}{% endblock %}
         </main>
     {% endblock %}
@@ -40,9 +40,9 @@
 
 {% block scripts %}
     {% if debug %}
-        <script type="module" src="{% static 'dist/js/bundle.js' %}"></script>
+        <script src="{% static 'dist/js/bundle.js' %}"></script>
     {% else %}
-        <script type="module" src="{% static 'dist/js/min.bundle.js' %}"></script>
+        <script src="{% static 'dist/js/min.bundle.js' %}"></script>
     {% endif %}
 {% endblock %}
 

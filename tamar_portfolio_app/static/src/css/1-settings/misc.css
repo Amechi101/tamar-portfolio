@@ -1,0 +1,32 @@
+
+.contact {
+  position:fixed;
+  display: none;
+  bottom: 2.33333rem;
+  left: 0.33333rem;
+  padding: 18px 0px;
+  /* margin: -18px -10px; */
+  /* display: block; */
+  cursor: pointer;
+  z-index: 9999;
+  -webkit-transform:rotate(-90deg);
+          transform:rotate(-90deg);
+}
+
+.contact a {
+    font-size: 1.5rem;
+    font-family: 'NeutraFace2Web-TextDemi';
+}
+
+@media screen and (max-width:768px) {
+    .contact {
+       left: -0.333rem; 
+    }
+}
+
+
+@media screen and (max-width:425px) {
+    .contact a {
+      font-size: 1.2rem;
+    }
+}

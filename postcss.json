@@ -1,0 +1,8 @@
+{
+  "use": [
+    "autoprefixer",
+    "postcss-import"
+  ],
+  "local-plugins": true,
+  "watch": true,
+}

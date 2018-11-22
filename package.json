@@ -2,12 +2,12 @@
   "name": "tamar-portfolio",
   "description": "Tamar Portfolio",
   "scripts": {
-    "dev": "npm run css:dev & npm run server:dev:start",
+    "dev": "npm run css:dev & watch:css:dev & npm run server:dev:start",
     "prod": "npm run webpack:prod & npm run css:prod",
     "webpack:dev": "webpack --config webpack.dev.js",
     "server:dev:start": "concurrently --kill-others \"python manage.py runserver\" \"npm run webpack:dev\"",
-    "watch:css": "onchange tamar_portfolio_app/static/src/css/index.css -- npm run css:dev",
-    "css:dev": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -o tamar_portfolio_app/static/dist/css/bundle.css",
+    "watch:css:dev": "watch 'npm run css:dev' ./tamar_portfolio_app/static/src/css",
+    "css:dev": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -o tamar_portfolio_app/static/dist/css/bundle.css ",
     "webpack:prod": "webpack --config webpack.prod.js",
     "css:prod": "postcss tamar_portfolio_app/static/src/css/index.css -u autoprefixer -u cssnano -o tamar_portfolio_app/static/dist/css/min.bundle.css"
   },
@@ -20,8 +20,9 @@
     "concurrently": "^3.6.1",
     "cssnano": "^4.1.5",
     "imports-loader": "^0.8.0",
-    "onchange": "^5.1.0",
     "postcss-cli": "^6.0.1",
+    "postcss-import": "^12.0.1",
+    "watch": "^1.0.2",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-merge": "^4.1.4"

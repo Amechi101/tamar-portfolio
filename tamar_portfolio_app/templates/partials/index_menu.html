@@ -10,7 +10,7 @@
 				<ul class="index-menu-list">
 					{% for artwork_year in artwork_year_list %}
 						<li class="index-menu-year">
-							<a href="{% url 'artworks:artwork_detail' artwork_year.slug %}">
+							<a class="tamar-pageTransition" href="{% url 'artworks:artwork_detail' artwork_year.slug %}">
 								{{ artwork_year.year }}
 							</a>
 						</li>

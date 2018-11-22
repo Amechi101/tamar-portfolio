@@ -6,13 +6,11 @@
             <a class="header__link header__logo header__logo--name" href="/">{% trans 'Tamar Halpern' %}<span class="period">{% trans '.' %}</span></a>
             
             <a class="header__link header__logo header__logo--contact" href="mailto:{% if public_email %}{{ public_email }}{% endif %}">Contact</a>
-            
-            <span class="u-block header__link header__logo header__logo--index">{% trans 'Index' %}</span>
         </div>
         <div class="header__col">
             <a id="about-menu-trigger" class="header__link header__about-menu" href="javascript:void(0);">
                 <span class="u-block header__about-menu--aboutText">{% trans "Prologue" %}</span>
-                <span class="u-block header__about-menu--artworkText">{% trans 'Artwork' %}</span>
+                <span style="display: block;" class="header__about-menu--artworkText">{% trans 'Artwork' %}</span>
             </a>
         </div>
     </div>

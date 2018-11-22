@@ -52,30 +52,30 @@ class App {
         });
 
 
-        document.querySelectorAll('.homepage__hero-visual').forEach(function(el) {
-            var newImage = new Image();
-            newImage.style.visibility = 'hidden';
-            newImage.src = el.dataset.heroImage;
-            newImage.alt = el.dataset.alt;
+        // document.querySelectorAll('.homepage__hero-visual').forEach(function(el) {
+        //     var newImage = new Image();
+        //     newImage.style.visibility = 'hidden';
+        //     newImage.src = el.dataset.heroImage;
+        //     newImage.alt = el.dataset.alt;
             
-            el.appendChild(newImage);
+        //     el.appendChild(newImage);
 
-            newImage.onload = function() {
-                new PixiPlugin({
-                    options: {
-                        element:el,
-                        stageWidth:  this.naturalWidth,
-                        stageHeight:  this.naturalHeight,
-                        pixiSprites: [  newImage.getAttribute('src') ],
-                        displaceScale: [800, 500],
-                        displacementImage: 'https://res.cloudinary.com/dcozrqiyb/image/upload/v1537939713/ripple_2.jpg',
-                        autoPlay: true,
-                        autoPlaySpeed: [0.3, 0.3]
-                    }
-                })
-            };
+        //     newImage.onload = function() {
+        //         new PixiPlugin({
+        //             options: {
+        //                 element:el,
+        //                 stageWidth:  this.naturalWidth,
+        //                 stageHeight:  this.naturalHeight,
+        //                 pixiSprites: [  newImage.getAttribute('src') ],
+        //                 displaceScale: [800, 500],
+        //                 displacementImage: 'https://res.cloudinary.com/dcozrqiyb/image/upload/v1537939713/ripple_2.jpg',
+        //                 autoPlay: true,
+        //                 autoPlaySpeed: [0.3, 0.3]
+        //             }
+        //         })
+        //     };
         
-        });
+        // });
 
         // cursor
         new Cursor();

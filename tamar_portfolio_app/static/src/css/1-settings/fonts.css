@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'NeutraFace2Web-DisplayTitling';
+    src: url("../../dist/webfonts/Neutra2Display-Titling.otf");
+    src: url("../../dist/webfonts/Neutra2Display-Titling.otf") format("opentype");
+    font-weight: 'normal';
+    font-style: 'normal';
+}
+
+@font-face {
+    font-family: 'NeutraFace2Web-TextDemi';
+    src: url("../../dist/webfonts/Neutraface2Text-Demi.otf");
+    src: url("../../dist/webfonts/Neutraface2Text-Demi.otf") format("opentype");
+    font-weight: 'normal';
+    font-style: 'normal';
+}
+
+@font-face {
+    font-family: 'NeutraFace2Web-TextBook';
+    src: url("../../dist/webfonts/Neutraface2Text-Book.otf");
+    src: url("../../dist/webfonts/Neutraface2Text-Book.otf") format("opentype");
+    font-weight: 'normal';
+    font-style: 'normal';
+}

@@ -18,6 +18,7 @@
                         <div class="homepage__hero-wrapper">
                             <div class="homepage__hero-visual homepage__hero-visual--wideLandscape" 
                             data-alt="{{ artwork_year.cover_title }}" data-hero-image="{% cloudinary_url artwork_year.cover_image GENERAL_IMAGES %}">
+                                <img alt="{{ artwork_year.cover_title }}" src="{% cloudinary_url artwork_year.cover_image GENERAL_IMAGES %}" />
                             </div>
                             <div class="homepage__hero-TitleContainer">
                                 <div class="homepage__title">
@@ -29,11 +30,10 @@
                                     <p class="title title--medium">{{ artwork_year.cover_title }}</p>
                                 </div>
                                 <div class="col home__headerActions">
-                                    <a href="{% url 'artworks:artwork_detail' artwork_year.slug  %}" class="cta">{% trans 'Discover' %} {{ artwork_year.year }}</a>
+                                    <a href="{% url 'artworks:artwork_detail' artwork_year.slug  %}" class="cta tamar-pageTransition">{% trans 'Discover' %} {{ artwork_year.year }}</a>
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
                 </section>
             </div> <!--//end: year: {{  artwork_year.year }} //-->

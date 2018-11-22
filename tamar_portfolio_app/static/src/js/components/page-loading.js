@@ -65,7 +65,7 @@ class PageLoading {
        		}, 10);
 	    };
 		
-		$('a').on('click', function( e ) {
+		$('a.tamar-pageTransition').on('click', function( e ) {
 			
 			var thisTarget = $(this).attr("target"), 
             thisHref = $(this).attr("href");

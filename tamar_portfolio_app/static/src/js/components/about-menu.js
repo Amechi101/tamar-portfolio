@@ -88,7 +88,7 @@ class AboutMenu extends Menu {
 
 			TweenMax.to(this.menuContainer, .7, { css: { x: 0, visibility:'visible' } }),
 			
-			TweenMax.to( $('.index-menu-button'), .7, { css: { autoAlpha: 0 } }),
+			// TweenMax.to( $('.index-menu-button'), .7, { css: { autoAlpha: 0 } }),
                     
 	        TweenMax.to( $('.header__logo--name'), .7, { css: { y: -70, autoAlpha:0 } }),
 
