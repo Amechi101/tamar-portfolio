@@ -27,117 +27,31 @@
 	</section>
 
 	{% for cv_obj in cv_list %}
-		{% if cv_obj.category == 'Solo Exhibitions' %}
-			<section id="{{ cv_obj.category }}" class="about-menu__cv-list">
-				<div class="about-menu__cv-title-cover">
-					<h2>{{ cv_obj.category }}</h2>
-				</div>
-			    
-			    {% for cv_detail_obj in cv_obj.categories.all %}
-				    <div class="about-menu__cv-item">
-				        <div class="about-menu__cv-item-img">
-				            <div class="about-menu__cv-item-img-main">
-				                <div class="c-img-slide-cover-inner">
-									{% include "partials/about_svg_element.html" %}
-				                </div>
-				            </div>
-				        </div>
-				        <div class="about-menu__cv-item-info">
-				            <h3 class="about-menu__cv-item-year">{{ cv_detail_obj.year }}</h3>
-				        	
-				        	<h3 class="about-menu__cv-item-post">
-				        		<div class="u-pc-view">{{ cv_detail_obj.description }}</div>
-				        		<div class="u-sp-view">{{ cv_detail_obj.description }}</div>
-				        	</h3>
-				        </div>
-				    </div>
-				{% endfor %}
-			</section>
-		{% endif %}
-
-		{% if cv_obj.category == 'Two Person and Selected Group Exhibitions' %}
-			<section id="{{ cv_obj.category }}" class="about-menu__cv-list">
-				<div class="about-menu__cv-title-cover">
-					<h2>{{ cv_obj.category }}</h2>
-				</div>
-			    
-			    {% for cv_detail_obj in cv_obj.categories.all %}
-				    <div class="about-menu__cv-item">
-				        <div class="about-menu__cv-item-img">
-				            <div class="about-menu__cv-item-img-main">
-				                <div class="c-img-slide-cover-inner">
-									{% include "partials/about_svg_element.html" %}
-				                </div>
-				            </div>
-				        </div>
-				        <div class="about-menu__cv-item-info">
-				            <h3 class="about-menu__cv-item-year">{{ cv_detail_obj.year }}</h3>
-				        	
-				        	<h3 class="about-menu__cv-item-post">
-				        		<div class="u-pc-view">{{ cv_detail_obj.description }}</div>
-				        		<div class="u-sp-view">{{ cv_detail_obj.description }}</div>
-				        	</h3>
-				        </div>
-				    </div>
-				{% endfor %}
-			</section>
-		{% endif %}
-
-		{% if cv_obj.category == 'Artist Books/Catalogs' %}
-			<section id="{{ cv_obj.category }}" class="about-menu__cv-list">
-				<div class="about-menu__cv-title-cover">
-					<h2>{{ cv_obj.category }}</h2>
-				</div>
-			    
-			    {% for cv_detail_obj in cv_obj.categories.all %}
-				    <div class="about-menu__cv-item">
-				        <div class="about-menu__cv-item-img">
-				            <div class="about-menu__cv-item-img-main">
-				                <div class="c-img-slide-cover-inner">
-									{% include "partials/about_svg_element.html" %}
-				                </div>
-				            </div>
-				        </div>
-				        <div class="about-menu__cv-item-info">
-				            <h3 class="about-menu__cv-item-year">{{ cv_detail_obj.year }}</h3>
-				        	
-				        	<h3 class="about-menu__cv-item-post">
-				        		<div class="u-pc-view">{{ cv_detail_obj.description }}</div>
-				        		<div class="u-sp-view">{{ cv_detail_obj.description }}</div>
-				        	</h3>
-				        </div>
-				    </div>
-				{% endfor %}
-			</section>
-		{% endif %}
-
-		{% if cv_obj.category == 'Press/Publications' %}
-			<section id="{{ cv_obj.category }}" class="about-menu__cv-list">
-				<div class="about-menu__cv-title-cover">
-					<h2>{{ cv_obj.category }}</h2>
-				</div>
-			    
-			    {% for cv_detail_obj in cv_obj.categories.all %}
-				    <div class="about-menu__cv-item">
-				        <div class="about-menu__cv-item-img">
-				            <div class="about-menu__cv-item-img-main">
-				                <div class="c-img-slide-cover-inner">
-									{% include "partials/about_svg_element.html" %}
-				                </div>
-				            </div>
-				        </div>
-				        <div class="about-menu__cv-item-info">
-				            <h3 class="about-menu__cv-item-year">{{ cv_detail_obj.year }}</h3>
-				        	
-				        	<h3 class="about-menu__cv-item-post">
-				        		<div class="u-pc-view">{{ cv_detail_obj.description }}</div>
-				        		<div class="u-sp-view">{{ cv_detail_obj.description }}</div>
-				        	</h3>
-				        </div>
-				    </div>
-				{% endfor %}
-			</section>
-		{% endif %}	
+		<section id="{{ cv_obj.get_category_display }}" class="about-menu__cv-list">
+			<div class="about-menu__cv-title-cover">
+				<h2>{{ cv_obj.get_category_display }}</h2>
+			</div>
+		    
+		    {% for cv_detail_obj in cv_obj.categories.all %}
+			    <div class="about-menu__cv-item">
+			        <div class="about-menu__cv-item-img">
+			            <div class="about-menu__cv-item-img-main">
+			                <div class="c-img-slide-cover-inner">
+								{% include "partials/about_svg_element.html" %}
+			                </div>
+			            </div>
+			        </div>
+			        <div class="about-menu__cv-item-info">
+			            <h3 class="about-menu__cv-item-year">{{ cv_detail_obj.year }}</h3>
+			        	
+			        	<h3 class="about-menu__cv-item-post">
+			        		<div class="u-pc-view">{{ cv_detail_obj.description }}</div>
+			        		<div class="u-sp-view">{{ cv_detail_obj.description }}</div>
+			        	</h3>
+			        </div>
+			    </div>
+			{% endfor %}
+		</section>
 	{% endfor %}
 
 	{% if galleries|length > 0 %}

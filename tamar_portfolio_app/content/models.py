@@ -117,12 +117,12 @@ class CurriculumVitaeCatgories(TimeModel):
 
 	"""
 
-	CV_CHOICES = [ 
-		( 'Solo Exhibitions', _( 'Solo Exhibitions' ) ),
-		( 'Two Person and Selected Group Exhibitions', _( 'Two Person and Selected Group Exhibitions' ) ),
-		( 'Press/Publications', _( 'Press/Publications' ) ),
-		( 'Artist Books/Catalogs', _( 'Artist Books/Catalogs' ) )
-	]
+	CV_CHOICES = ( 
+		( 'A', _( 'Solo Exhibitions' ) ),
+		( 'B', _( 'Two Person and Selected Group Exhibitions' ) ),
+		( 'C', _( 'Press/Publications' ) ),
+		( 'D', _( 'Artist Books/Catalogs' ) )
+	)
 
 	category = models.CharField(max_length=255, choices=CV_CHOICES, null=True, blank=False, verbose_name='CV Category')
 
@@ -135,6 +135,8 @@ class CurriculumVitaeCatgories(TimeModel):
 		verbose_name = _('Curriculum Vitae')
 		
 		verbose_name_plural = _('Curriculum Vitae')
+
+		ordering = ['category']
 
 
 
