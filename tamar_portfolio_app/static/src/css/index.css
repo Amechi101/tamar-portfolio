@@ -179,6 +179,10 @@ img, video {
     display: block;
 }
 
+.no-link {
+    cursor: none;
+}
+
 .cta {
   display: inline-block;
   padding: 17px 32px;
@@ -1086,10 +1090,14 @@ html.webkit .cta:not(button) {
 }
 
 .table-list .item-date {
+    font-family: "NeutraFace2Web-TextDemi";
+}
+
+.table-list .item-arrow, 
+.table-list .item-date {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     width: auto;
-    font-family: "NeutraFace2Web-TextDemi";
 }
 
 .item-title {
@@ -1099,6 +1107,24 @@ html.webkit .cta:not(button) {
 .table-list .item-content {
     opacity: .5;
     font-family:'NeutraFace2Web-TextBook';
+}
+
+.table-list .item-arrow {
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 1.25rem;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.icon {
+    display: inline-block;
+    pointer-events: none;
+    width: 1em;
+    height: 1em;
+    fill: var(--primary-orange-color);
 }
 
 

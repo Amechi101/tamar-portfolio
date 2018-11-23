@@ -11,7 +11,7 @@ class Cursor {
 	init() {
 
 		this.pointer = $('#pointer');
-		this.expandedHoverStateLinks = $("a, .index-menu-button");
+		this.expandedHoverStateLinks = $("a").not('.no-link');
 		this.hoverEvents();
 		this.mousePosition();
 	}

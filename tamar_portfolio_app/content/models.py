@@ -153,6 +153,9 @@ class CurriculumVitaeDetail(models.Model):
 
 	description = models.TextField(max_length=1000, null=True, blank=True, verbose_name=' Work Description')
 
+	url = models.URLField(max_length=255, null=True, blank=True, verbose_name='URL', 
+		help_text="Optional URL for article link'")
+
 
 	def __str__(self):
 		return "{0} - {1}".format( self.cv_categories, self.year )
@@ -216,15 +219,21 @@ class GeneralInformation(models.Model):
 
 	"""
 
-	public_email = models.EmailField(max_length=200, null=True, blank=True, verbose_name='Email', help_text='Public facing contact email.')
+	public_email = models.EmailField(max_length=200, null=True, blank=False, verbose_name='Email', help_text='Public facing contact email.')
 
 	about_description = models.TextField(max_length=None, null=True, blank=True, verbose_name='About Description')
 
+	instagram_handle = models.CharField(max_length=255, null=True, blank=True, verbose_name='Instagram Handle', 
+		help_text="Please omit @ symbol, just input the the handle e.g. 'fakehandle'")
+
+	instagram_url = models.URLField(max_length=255, null=True, blank=True, verbose_name='Instagram URL', 
+		help_text="Please enter full url with https:// or http://'")
+
 	google_analytics = models.CharField(max_length=255, null=True, blank=True, verbose_name='Google Analytics Code', 
-		help_text="Paste your google analytics code here, ex: UA-XXXXXXXXX-X")
+		help_text="Paste your google analytics code here, e.g. UA-XXXXXXXXX-X")
 
 	def __str__(self):
-		return "{0}".format(self.pk)
+		return "General Information Slot: {0}".format(self.pk)
 
 	# Metadata
 	class Meta: 

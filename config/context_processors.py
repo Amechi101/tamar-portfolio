@@ -12,9 +12,13 @@ def site_processor(request):
         general_information_obj['public_email'] = fields['public_email']
         general_information_obj['about_description'] = fields['about_description']
         general_information_obj['google_analytics_code'] = fields['google_analytics']
+        general_information_obj['instagram_handle'] = fields['instagram_handle']
+        general_information_obj['instagram_url'] = fields['instagram_url']
     
     return { 
         'public_email': general_information_obj['public_email'],
+        'instagram_url': general_information_obj['instagram_url'],
+        'instagram_handle': general_information_obj['instagram_handle'],
         'about_description': general_information_obj['about_description'],
         'google_analytics_code': general_information_obj['google_analytics_code'],
         'cv_list': CurriculumVitaeCatgories.objects.all().prefetch_related('categories'),

@@ -50,7 +50,7 @@ class CollectionAdmin(admin.ModelAdmin):
 @admin.register(GeneralInformation)
 class GeneralInformationAdmin(admin.ModelAdmin):
 
-	list_display = ['pk', 'public_email']
+	list_display = ['public_email']
 
 # @admin.register(YearlyArtworkDetail)
 # class  YearlyArtworkAdmin(admin.ModelAdmin):
