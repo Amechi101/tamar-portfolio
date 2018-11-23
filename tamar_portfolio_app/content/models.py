@@ -163,6 +163,8 @@ class CurriculumVitaeDetail(models.Model):
 		
 		verbose_name_plural = _('CV Details')
 
+		ordering = ['-year']
+
 
 
 @python_2_unicode_compatible

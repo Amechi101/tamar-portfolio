@@ -59,15 +59,32 @@
                     </div>
                 </div>
             </section>
+            <div class="index-menu">
+                <div class="index-menu-main">
+                    <div class="index-menu-cover">
+                        <div class="index-menu-container">
+                            <!-- <div class="index-menu-title">
+                                <h2>Index</h2>
+                            </div> -->
+                            <ul class="index-menu-list">
+                                {% for artwork_year in artwork_year_list %}
+                                    <li class="index-menu-year">
+                                        <a class="tamar-pageTransition" href="{% url 'artworks:artwork_detail' artwork_year.slug %}">
+                                            {{ artwork_year.year }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div> <!--//end: year: {{  artwork_year.year }} //-->
     {% endif %}
     
 {% endblock %}
 
 
-{% block footer %}
-    {% include "partials/index_menu.html" %}
-{% endblock %}
          
 
 

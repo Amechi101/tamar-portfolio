@@ -95,11 +95,12 @@ class PageLoading {
 		const logo = $('.header__logo--name');
 		const aboutMenu = $('.header__about-menu--aboutText');
 		const workSectionTitle = $('.homepage__title h2')
-		const workSectionImage = $('.homepage__hero-visual canvas');
+		const workSectionImage = $('.homepage__hero-visual img');
 		const workSectionSubTitle = $('.homepage__hero-TitleContainer-bottom p');
+		const workSectionButton = $('.homepage__hero-discoverYear');
 		const indexMenu = $('.index-menu-button');
 
-		TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage], { opacity: 0 } );
+		TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage, workSectionButton], { opacity: 0 } );
 
 		let workSectionYears, workSectionTimeline = '';
 
@@ -167,7 +168,7 @@ class PageLoading {
 
 			TweenMax.to(preLoaderWrap, .7, { css: { autoAlpha:0, display: 'none'} }),
 
-			TweenMax.staggerTo([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage], .7, { opacity: 1 }, 0.3),
+			TweenMax.staggerTo([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage, workSectionButton], .7, { opacity: 1 }, 0.3),
 		]
 
 		const pageLoaderTimeLine = new TimelineMax({ 

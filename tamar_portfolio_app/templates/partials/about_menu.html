@@ -27,79 +27,118 @@
 	</section>
 
 	{% for cv_obj in cv_list %}
-		<section id="{{ cv_obj.get_category_display }}" class="about-menu__cv-list">
-			<div class="about-menu__cv-title-cover">
-				<h2>{{ cv_obj.get_category_display }}</h2>
-			</div>
-		    
-		    {% for cv_detail_obj in cv_obj.categories.all %}
-			    <div class="about-menu__cv-item">
-			        <div class="about-menu__cv-item-img">
-			            <div class="about-menu__cv-item-img-main">
-			                <div class="c-img-slide-cover-inner">
-								{% include "partials/about_svg_element.html" %}
-			                </div>
-			            </div>
-			        </div>
-			        <div class="about-menu__cv-item-info">
-			            <h3 class="about-menu__cv-item-year">{{ cv_detail_obj.year }}</h3>
-			        	
-			        	<h3 class="about-menu__cv-item-post">
-			        		<div class="u-pc-view">{{ cv_detail_obj.description }}</div>
-			        		<div class="u-sp-view">{{ cv_detail_obj.description }}</div>
-			        	</h3>
-			        </div>
-			    </div>
-			{% endfor %}
+		<section id="{{ cv_obj.get_category_display }}" class="page-section-list">
+		    <div class="page-section-list-title">
+		        {{ cv_obj.get_category_display }}
+		    </div>
+		    <ul class="table-list">
+		    	{% for cv_detail_obj in cv_obj.categories.all %}
+		    		{% ifchanged cv_detail_obj.year %}
+				        <li class="table-list-item">
+				        	<a class="tr">
+					            <div class="td item-date">
+					                {{ cv_detail_obj.year }}
+					            </div>
+					            <div class="td">	
+					                <div class="item-content">
+					                    {{ cv_detail_obj.description }}
+					                </div>
+					            </div>
+				   			</a>
+				        </li>
+				    {% else %}
+				    	<li class="table-list-item">
+				        	<a class="tr">
+					            <div class="td item-date-fixed"></div>
+					            <div class="td">	
+					                <div class="item-content">
+					                    {{ cv_detail_obj.description }}
+					                </div>
+					            </div>
+				   			</a>
+				        </li>
+				    {% endifchanged %}
+		        {% endfor %}
+		    </ul>
 		</section>
 	{% endfor %}
 
 	{% if galleries|length > 0 %}
-		<section id="Galleries" class="about-menu__cv-list">
-			<div class="about-menu__cv-title-cover">
-				<h2>Galleries</h2>
-			</div>
-		    {% for gallery in galleries %}
-			    <div class="about-menu__cv-item">
-			        <div class="about-menu__cv-item-img">
-			            <div class="about-menu__cv-item-img-main">
-			                <div class="c-img-slide-cover-inner">
-								{% include "partials/about_svg_element.html" %}
-			                </div>
-			            </div>
-			        </div>
-			        <div class="about-menu__cv-item-info">
-			            <h3 class="about-menu__cv-item-year">{{ gallery.name }}</h3>
-			        	
-			        	<h3 class="about-menu__cv-item-post">
-			        		<div class="u-pc-view">{{ gallery.location }}</div>
-			        		<div class="u-sp-view">{{ gallery.location }}</div>
-			        	</h3>
-			        </div>
-			    </div>
-			{% endfor %}
+		<section id="Galleries" class="page-section-list">
+		    <div class="page-section-list-title">
+		        Galleries
+		    </div>
+		    <ul class="table-list">
+		    	{% for gallery in galleries %}
+			        <li class="table-list-item">
+			        	<a class="tr">
+				            <div class="td">
+				            	<div class="item-title">
+				            		{{ gallery.name }}
+				            	</div>	
+				                <div class="item-content">
+				                    {{ gallery.location }}
+				                </div>
+				            </div>
+			   			</a>
+			        </li>
+		        {% endfor %}
+		    </ul>
 		</section>
 	{% endif %}
 
 	{% if collections|length > 0 %}
-		<section id="Collections" class="about-menu__cv-list">
-			<div class="about-menu__cv-title-cover">
-				<h2>Collections</h2>
-			</div>
-		    {% for collection in collections %}
-			    <div class="about-menu__cv-item">
-			        <div class="about-menu__cv-item-img">
-			            <div class="about-menu__cv-item-img-main">
-			                <div class="c-img-slide-cover-inner">
-								{% include "partials/about_svg_element.html" %}
-			                </div>
-			            </div>
-			        </div>
-			        <div class="about-menu__cv-item-info">
-			            <h3 class="about-menu__cv-item-year">{{ collection.name }}</h3>
-			        </div>
-			    </div>
-			{% endfor %}
+		<section id="Collections" class="page-section-list">
+		    <div class="page-section-list-title">
+		        Collections
+		    </div>
+		    <ul class="table-list">
+		    	{% for collection in collections %}
+			        <li class="table-list-item">
+			        	<a class="tr">
+				            <div class="td">
+				            	<div class="item-title">
+				            		{{ collection.name }}
+				            	</div>	
+				            </div>
+			   			</a>
+			        </li>
+		        {% endfor %}
+		    </ul>
 		</section>
 	{% endif %}
+
+	<section id="Collections" class="page-section-list">
+	    <div class="page-section-list-title">
+	        Contact
+	    </div>
+	    <ul class="table-list">
+	    	{% if public_email %}
+		        <li class="no-br table-list-item">
+		        	<a class="tr" href="mailto:{{ public_email }}">
+			            <div class="td">
+			            	<div class="item-title">
+			            		Email
+			            	</div>
+			            	<div class="item-content">
+				                {{ public_email }}
+				            </div>	
+			            </div>
+		   			</a>
+		        </li>
+	        {% endif %}
+        	<li class="no-br table-list-item">
+	        	<a class="tr" href="#">
+		            <div class="td">
+		            	<div class="item-title">
+		            		Instagram
+		            	</div>
+		            	<div class="item-content">
+			                @tamarhalpern
+			            </div>	
+		            </div>
+	   			</a>
+	        </li>
+	    </ul>
+	</section>
 </div>

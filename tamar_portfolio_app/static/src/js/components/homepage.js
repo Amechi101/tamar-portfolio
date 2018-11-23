@@ -15,7 +15,7 @@ class HomePage {
 	}
 	init() {
 		this.workSection();
-		this.pageProgressBar();
+		// this.pageProgressBar();
 	}
 	pageProgressBar() {
 		const progressBar = $('#page-progression');

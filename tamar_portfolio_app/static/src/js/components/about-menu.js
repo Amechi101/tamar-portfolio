@@ -90,9 +90,9 @@ class AboutMenu extends Menu {
 			
 			// TweenMax.to( $('.index-menu-button'), .7, { css: { autoAlpha: 0 } }),
                     
-	        TweenMax.to( $('.header__logo--name'), .7, { css: { y: -70, autoAlpha:0 } }),
+	        // TweenMax.to( $('.header__logo--name'), .7, { css: { y: -70, autoAlpha:0 } }),
 
-			TweenMax.to( $('.header__logo--contact'), .7, { css: { x: 0, autoAlpha:1 } }),
+			// TweenMax.to( $('.header__logo--contact'), .7, { css: { x: 0, autoAlpha:1 } }),
 
 			TweenMax.to( $('.header__about-menu--aboutText'), .7, {	 css: { x: 100, autoAlpha:0 } }),
 
