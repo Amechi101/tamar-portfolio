@@ -92,7 +92,7 @@ class PageLoading {
 	pageLoaderAnimations() {
 
 		const preLoaderWrap = $('.preloader-wrap');
-		const logo = $('.header__logo--name');
+		const logo = $('.header__logo');
 		const aboutMenu = $('.header__about-menu--aboutText');
 		const workSectionTitle = $('.homepage__title h2')
 		const workSectionImage = $('.homepage__hero-visual img');
