@@ -21,6 +21,7 @@ def site_processor(request):
         'instagram_handle': general_information_obj['instagram_handle'],
         'about_description': general_information_obj['about_description'],
         'google_analytics_code': general_information_obj['google_analytics_code'],
+        'artwork_years': ArtworkYear.objects.all(),
         'cv_list': CurriculumVitaeCatgories.objects.all().prefetch_related('categories'),
         'galleries': Gallery.objects.all(),
         'collections': Collection.objects.all(),
