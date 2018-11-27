@@ -3,10 +3,10 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load cloudinary %}
-{% load evenModulo %}
+
+{% block title %}Home{% endblock %}
 
 {% block body %}homepage{% endblock %}
-
 
 {% block content %}
     {% for artwork_year in artwork_year_list %}

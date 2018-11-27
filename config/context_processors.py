@@ -1,7 +1,7 @@
 import cloudinary
 
 from django.contrib.sites.models import Site
-from tamar_portfolio_app.content.models import ArtworkYear, ArtworkDetail, CurriculumVitaeCatgories, Gallery, Collection, GeneralInformation
+from tamar_portfolio_app.content.models import ArtworkYear, GeneralInformation
 
 def site_processor(request):
 
@@ -22,9 +22,6 @@ def site_processor(request):
         'about_description': general_information_obj['about_description'],
         'google_analytics_code': general_information_obj['google_analytics_code'],
         'artwork_years': ArtworkYear.objects.all(),
-        'cv_list': CurriculumVitaeCatgories.objects.all().prefetch_related('categories'),
-        'galleries': Gallery.objects.all(),
-        'collections': Collection.objects.all(),
         'site': Site.objects.get_current() 
     }
 

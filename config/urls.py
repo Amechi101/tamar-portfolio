@@ -2,7 +2,7 @@ from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
 from django.views import defaults as default_views
-from tamar_portfolio_app.content.views import HomePageView
+from tamar_portfolio_app.content.views import HomePageView, AboutPageView
 
 
 urlpatterns = [
@@ -12,6 +12,9 @@ urlpatterns = [
 
     # HOMEPAGE
     path('', HomePageView.as_view(), name='home'),
+
+    #Pages
+    path('about/', AboutPageView.as_view(), name='about'),
 
     # Content
     path('', include('tamar_portfolio_app.content.urls')),

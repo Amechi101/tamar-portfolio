@@ -1,43 +1,37 @@
 {% load i18n %}
 {% load staticfiles %}
 
-<div class="menu about-menu">
-	<div id="nav__content__bg">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-				<g>
-				<rect fill='#ff4828' x="0" y="0" height="100%" width="100%"></rect>
-				<polygon points="0,0 0,10 190,180"></polygon>
-
-				</g>
-				</svg>
-			</div>
+<div id="mainMenu" class="menu">
 	<div class="menu__container">
 	    <div class="menu__about-container">
 	        <p class="menu__description">
-	        	Tamar makes paintings but doesn't paint.....paintings, drawings, artist books.... work is alive, changing, breathing...magic.
+	        	{% blocktrans %}Tamar makes paintings but doesn't paint.....paintings, drawings, artist books.... work is alive, changing, breathing...magic.{% endblocktrans %}
 	        </p>
 	        <div class="menu__info-container">
 	        	<p class="menu__info">
-	        		Prologue <a href="">View More</a><br>
+	        		{% trans 'Prologue' %} <a class="tamar-pageTransition" href="{% url 'about' %}">{% trans 'View More' %}</a>
+	        		<br>
 		            <br>
-		            CV <a href="">View More</a><br>
+		            {% trans 'CV' %} <a class="tamar-pageTransition" href="{% url 'about' %}#CV">{% trans 'View More' %}</a>
+		            <br>
 		            <br>
 		            {% if instagram_url %}
-			            Instagram <a href="{{ instagram_url }}" target="_blank">@{{ instagram_handle }}</a><br>
+			            {% trans 'Instagram' %} <a href="{{ instagram_url }}" target="_blank">{% trans '@' %}{{ instagram_handle }}</a>
+			            <br>
 			            <br>
 		            {% endif %}
 		            {% if public_email %}
-		            	Contact <a href="mailto:{{ public_email }}">{{ public_email }}</a>
+		            	{% trans 'Contact' %} <a href="mailto:{{ public_email }}">{{ public_email }}</a>
 		            {% endif %}
 		        </p>
 	        </div>
 	    </div>
-	    <div class="artist-list-grid menu-parent">
-	        <h1 class="artist-list-grid__title">Index</h1>
-	        <div class="artist-list-grid__list">
+	    <div class="index-list-grid">
+	        <h1 class="index-list-grid__title">{% trans 'Index' %}</h1>
+	        <div class="index-list-grid__list">
 	        	{% for years in artwork_years %}
-		            <div class="artist-list-grid__list-item">
-		                <a class="artist-list-grid__link" href="{{ slug.get_absolute_year }}">{{ years.year }}</a>
+		            <div class="index-list-grid__list-item">
+		                <a class="index-list-grid__link tamar-pageTransition" href="{% url 'artworks:artwork_detail' years.slug %}">{{ years.year }}</a>
 		            </div>
 		        {% endfor %} 
 	        </div>

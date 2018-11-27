@@ -3,7 +3,6 @@ import $ from 'jquery';
 import device from '../utils/device.js';
 
 
-
 class Cursor {
 	constructor() {
 		this.init();
@@ -11,7 +10,7 @@ class Cursor {
 	init() {
 
 		this.pointer = $('#pointer');
-		this.expandedHoverStateLinks = $("a").not('.no-link');
+		this.expandedHoverStateLinks = $("a, #mainMenuTrigger").not('.no-link');
 		this.hoverEvents();
 		this.mousePosition();
 	}

@@ -13,6 +13,18 @@ class HomePageView(TemplateView):
 		return super().get_context_data(**kwargs)
 
 
+class AboutPageView(TemplateView):
+
+	template_name = 'pages/about.html'
+
+	def get_context_data(self, **kwargs):
+
+		kwargs['cv_list'] = CurriculumVitaeCatgories.objects.all().prefetch_related('categories')
+		kwargs['galleries'] = Gallery.objects.all()
+		kwargs['collections'] = Collection.objects.all()
+
+		return super().get_context_data(**kwargs)
+
 
 class ArtWorkDetailView(DetailView):
 

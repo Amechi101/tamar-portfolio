@@ -1,14 +1,15 @@
 // libs
 import $ from 'jquery';
 import { TweenMax, TimelineMax, CSSPlugin } from 'gsap';
+import CSSRulePlugin from "gsap/CSSRulePlugin";
 
 const plugins = [CSSPlugin];
 
 // modules
 import Env from '../base/env.js'
 
-
-class PageLoading {
+// @TODO rewrite page loading/transition class & methods
+class PageEvents {
 	constructor() {
 		this.init();
 	}
@@ -90,22 +91,20 @@ class PageLoading {
 		});
 	}
 	pageLoaderAnimations() {
-
 		const preLoaderWrap = $('.preloader-wrap');
 		const logo = $('.header__logo');
-		const aboutMenu = $('.header__about-menu--aboutText');
+		const mainMenu = $('#mainMenuTrigger');
 		const workSectionTitle = $('.homepage__title h2')
 		const workSectionImage = $('.homepage__hero-visual img');
 		const workSectionSubTitle = $('.homepage__hero-TitleContainer-bottom p');
 		const workSectionButton = $('.homepage__hero-discoverYear');
-		const indexMenu = $('.index-menu-button');
 
-		TweenMax.set([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage, workSectionButton], { opacity: 0 } );
+		TweenMax.set([logo, mainMenu, workSectionTitle, workSectionSubTitle, workSectionImage, workSectionButton], { opacity: 0 } );
 
-		let workSectionYears, workSectionTimeline = '';
+		let workSectionTimeline = '', aboutMenuTimeline = '';
 
 		if ( Env.$body.attr('id') === 'artworkDetail' ){
-    		workSectionYears = $('.homepage__year').map(function(index, element) {
+    		const workSectionYears = $('.homepage__year').map(function(index, element) {
     		
 	    		const artwork_year = $(element).data('work-year');
 	    		
@@ -160,6 +159,28 @@ class PageLoading {
 	    	});
     	}
 
+    	if ( Env.$body.attr('id') === 'about' ){
+	  //   	var aboutMenuTween = [
+				
+			//     TweenMax.to( CSSRulePlugin.getRule("#about .c-mask:after"), .7, { cssRule: { scaleX: 0 } } ),
+
+			//     TweenMax.fromTo($('.about-menu__intro-desc-info .desc-info-1'), .7, { css: { x: 50, opacity: 0 } }, { css: { x: 0, opacity: 1 } } ),
+
+			//     TweenMax.fromTo( $('.about-menu__intro-desc-info .desc-info-2'), .7, { css: { x: 70, opacity: 0 } }, { css: { x: 0, opacity: 1 } } ),
+
+			//     TweenMax.fromTo( $('.about-menu__intro-desc-bio p'), .7, { y: 30, opacity: 0 }, { y: 0, opacity: 1 } ),
+
+			// ];    
+
+	  //       aboutMenuTimeline = new TimelineMax({ 
+
+			// 	tweens: aboutMenuTween,
+
+
+			// });
+
+    	};
+
 		const pageLoaderTweens = [
 
 			TweenMax.to($('.pre-loadText'), .7, { css: { autoAlpha:0, display: 'none'} }),
@@ -168,7 +189,10 @@ class PageLoading {
 
 			TweenMax.to(preLoaderWrap, .7, { css: { autoAlpha:0, display: 'none'} }),
 
-			TweenMax.staggerTo([logo, aboutMenu, workSectionTitle, workSectionSubTitle, indexMenu, workSectionImage, workSectionButton], .7, { opacity: 1 }, 0.3),
+			TweenMax.staggerTo([logo, mainMenu, workSectionTitle, workSectionSubTitle, workSectionImage, workSectionButton], .7, { opacity: 1 }, 0.3),
+
+			aboutMenuTimeline
+
 		]
 
 		const pageLoaderTimeLine = new TimelineMax({ 
@@ -184,4 +208,4 @@ class PageLoading {
 	}
 }
 
-export default PageLoading;
+export default PageEvents;

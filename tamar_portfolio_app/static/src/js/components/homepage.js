@@ -1,12 +1,12 @@
 // libs
 import $ from 'jquery';
-import * as PIXI from 'pixi.js'
 import ScrollReveal from 'scrollreveal'
 
 // modules
 import Env from '../base/env.js'
 
-
+// @TODO Change file & class name to --> artwork
+// @TODO rewrite homepage --> artwork class & methods
 class HomePage {
 
 	constructor() {
