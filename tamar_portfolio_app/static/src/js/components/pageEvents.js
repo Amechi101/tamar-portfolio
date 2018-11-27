@@ -58,36 +58,28 @@ class PageEvents {
 
 		var pageSweeper = $('.page-sweeper');
 		
-		const pageLinkTransition = (e) => {
-	    	setTimeout(() => {
-		        TweenMax.to(pageSweeper, .4, {autoAlpha:1, y:0, ease: Cubic.Power3 }), setTimeout(() => {
+		function pageLinkTransition(e) {
+		    
+		    setTimeout(function() {  
+		        TweenMax.to(pageSweeper, .7, {autoAlpha:1, y:0, ease: Cubic.Power3 })
+
+		        setTimeout(function() {
 	                location.href = e
-	            }, 500)
-       		}, 10);
-	    };
+	            }, 500);
+
+            }, 10);
+	    }
 		
 		$('a.tamar-pageTransition').on('click', function( e ) {
+
+			e.preventDefault();
 			
-			var thisTarget = $(this).attr("target"), 
-            thisHref = $(this).attr("href");
-        
-		    var linkHash = /(#).*/gi;
-		    var linkHashMatch = thisHref.match(linkHash);
+			var thisHref = $(this).attr("href");
 
-	        function CheckHash() {
+			pageLinkTransition(thisHref);
 
-	            if ( linkHashMatch != null ) {
-
-	                return linkHashMatch[0];
-	            
-	            } else {
-
-	                return '#';
-	            }
-	        }
-
-			if("_blank" != thisTarget && -1 == thisHref.indexOf("mailto") && thisHref != "javascript:void(0);" && 
-        	(e.preventDefault(), CheckHash() != thisHref && pageLinkTransition(thisHref)));
+			// @TODO fix bug when clicking CV link on menu via the about page
+	       
 		});
 	}
 	pageLoaderAnimations() {
@@ -160,6 +152,7 @@ class PageEvents {
     	}
 
     	if ( Env.$body.attr('id') === 'about' ){
+    		// @TODO create animations for the about page
 	  //   	var aboutMenuTween = [
 				
 			//     TweenMax.to( CSSRulePlugin.getRule("#about .c-mask:after"), .7, { cssRule: { scaleX: 0 } } ),
@@ -182,6 +175,10 @@ class PageEvents {
     	};
 
 		const pageLoaderTweens = [
+
+			// TweenMax.to($('rect'), .7, { fill: '#fafafa' } ),
+
+			// TweenMax.to($('polygon'), 0.7, { attr: { points: '0,0 0,10 190,180' } }),
 
 			TweenMax.to($('.pre-loadText'), .7, { css: { autoAlpha:0, display: 'none'} }),
 

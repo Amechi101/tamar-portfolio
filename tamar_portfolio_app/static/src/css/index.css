@@ -131,11 +131,14 @@ a {
   text-decoration: none;
   transition: color 0.3s ease-out;
 }
+svg {
+    width: 100px;
+}
 rect {
-    fill:#ff4828;
+    fill:var(--primary-orange-color);
 }
 polygon {
-    fill:var(--secondary-light-grey-color);
+    fill:#000000;
 }
 figcaption {
   margin-top: 12px;
@@ -609,7 +612,7 @@ html.webkit .cta:not(button) {
 }
 
 .preloader-elements .text .pre-loadText {
-    font-size: 50px;
+    font-size: 20vw;
 }
 
 
@@ -619,7 +622,7 @@ html.webkit .cta:not(button) {
 
 
 .preloader-elements .text .years {
-    font-size: 9.0vw;
+    font-size: 20vw;
 }
 
 .preloader-elements .text .years span {
@@ -1059,7 +1062,7 @@ html.webkit .cta:not(button) {
     margin: 0 auto;
     margin: 0 auto;
     position: relative;
-    padding: 120px 100px 300px 70px;
+    padding: 120px 100px 150px 70px;
 }
 
 @media (max-width: 1200px) {
