@@ -3,7 +3,6 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load cloudinary %}
-{% load evenModulo %}
 
 {% block title %}{{ artwork_year.year }} - {{ artwork_year.cover_title }}{% endblock %}
 
@@ -38,25 +37,19 @@
                 <div class="container">
                     <div class="homepage__workContent">  
                         <div class="homepage__workGrid">
-                            
-                            <!--//start: work grid col: even forloop //-->
+                            <!--//start: work grid items: first half of artworks//-->
                             <div class="homepage__workGrid-col col-1">
-                                {% for artwork in artworks %} 
-                                    {% if forloop.counter0|evenModulo == 0 %} 
-                                        {% include "artwork/partials/artwork-item.html" %}
-                                    {% endif %}
+                                {% for artwork in artworks_left %} 
+                                    {% include "artwork/partials/artwork-item.html" %}
                                 {% endfor %}
-                            </div> <!--//end: work grid col: even forloop //-->
+                            </div> <!--//end: work grid items: first half of artworks//-->
 
-                            <!--//start: work grid item: odd forloop //-->
+                            <!--//start: work grid items: second half of artworks//-->
                             <div class="homepage__workGrid-col col-2">
-                                {% for artwork in artworks %} 
-                                    {% if forloop.counter0|evenModulo == 1 %} 
-                                        {% include "artwork/partials/artwork-item.html" %}
-                                    {% endif %}
+                                {% for artwork in artworks_right %} 
+                                    {% include "artwork/partials/artwork-item.html" %}
                                 {% endfor %}
-                            </div> <!--//end: work grid item: odd forloop //-->
-
+                            </div> <!--//end: work grid items: second half of artworks//-->
                         </div>
                     </div>
                 </div>

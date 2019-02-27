@@ -926,36 +926,171 @@ html.webkit .cta:not(button) {
     max-width: 500px;
 }
 
-/*.homepage__workGrid-item--landscape {
-    max-width: 100%;
-}*/
-
-/*.homepage__workGrid-img-container.homepage__workGrid-item--landscape {
-    padding-bottom: 75%;
-}*/
 
 .homepage__workGrid-img-container {
     position: relative;
     overflow: hidden;
-    /*padding-bottom: 150%;*/
-    /*padding-bottom: 123%;*/
 }
 
 .homepage__workGrid-img-container img,
 .homepage__workGrid-img-container video {
-/*    position: absolute;
-    top: 0;
-    left: 0;*/
-    width: auto;
-    height:auto;
-    max-height: 50vh;
-/*    -o-object-fit: contain;
-    object-fit: contain; */
+    width: 100%;
+    height: 100%;
 }
 
+.homepage__workGrid-img-container img.img-only {
+    cursor: zoom-in;
+}
+
+
+.c-picture-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    transition: opacity 0s .8s;
+}
+
+.c-picture-viewer:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: var(--secondary-light-grey-color);
+    transform: translateY(100%);
+    transition: transform .5s cubic-bezier(.47,0,.745,.715) .25s;
+}
+
+.c-picture-viewer.open {
+    opacity: 1;
+    transition: none;
+}
+
+.c-picture-viewer.open:before {
+    transition: transform .5s cubic-bezier(.165,.84,.44,1) .2s;
+    transform: translateY(0);
+}
+
+.c-picture-viewer_inner {
+    width: 100%;
+    height: 100%;
+}
+
+.c-picture-viewer_image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    object-fit: contain;
+    
+    opacity: 0;
+    transform: translateY(10%);
+    transform: scale(1.2);
+    transform-origin: 50% 50%;
+    transition: transform .5s, opacity .5s;
+    transition-timing-function: cubic-bezier(.47,0,.745,.715);
+}
+
+.c-picture-viewer.open .c-picture-viewer_image {
+    opacity: 1;
+    transform: scale(1);
+    transform: translateY(0);
+    transition: transform .5s .5s, opacity .5s .5s;
+    transition-timing-function: cubic-bezier(.165,.84,.44,1);
+}
+
+
+.c-picture-viewer__close-btn {
+    height: 3.3rem;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    right: 1.4rem;
+    top: 2rem;
+    transition: opacity .2s;
+    width: 3rem;
+    z-index: 2;
+}
+
+@media (min-width: 1024px) {
+    .c-picture-viewer__close-btn {
+        right: 4.8rem;
+        top: 3.7rem;
+    }
+}
+
+.c-picture-viewer.open .c-picture-viewer__close-btn {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 0s;
+}
+
+.c-picture-viewer__close-btn span {
+    display: block;
+    height: .2rem;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+}
+
+.c-picture-viewer__close-btn span:first-child {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.c-picture-viewer__close-btn span:last-child {
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+
+.c-picture-viewer.open .c-picture-viewer__close-btn span:after {
+    transform: scaleX(1);
+}
+
+.c-picture-viewer.open .c-picture-viewer__close-btn span:first-child:after {
+    transition: transform .5s cubic-bezier(.165,.84,.44,1) .7s;
+}
+
+.c-picture-viewer.open .c-picture-viewer__close-btn span:last-child:after {
+    transition: transform .5s cubic-bezier(.165,.84,.44,1) .8s;
+}
+
+.c-picture-viewer__close-btn span:after {
+    background-color: var(--primary-orange-color);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+}
+
+.c-picture-viewer__close-btn span:first-child:after {
+    transform-origin: left;
+    transition: transform .5s cubic-bezier(.47,0,.745,.715) 0s;
+}
+
+.c-picture-viewer__close-btn span:last-child:after {
+    transform-origin: right;
+    transition: transform .5s cubic-bezier(.47,0,.745,.715) .1s;
+}
+
+/*.homepage__workGrid-img-container video {
+    width: auto;
+    height:auto;
+    height: 50vh;
+}
+*/
 .index-menu-main {
     position:relative;
-    /*height:calc(100vh - 100px);*/
     height: 200px;
 }
 

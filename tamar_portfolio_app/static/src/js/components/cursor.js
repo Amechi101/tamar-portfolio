@@ -10,7 +10,7 @@ class Cursor {
 	init() {
 
 		this.pointer = $('#pointer');
-		this.expandedHoverStateLinks = $("a, #mainMenuTrigger").not('.no-link');
+		this.expandedHoverStateLinks = $("a, #mainMenuTrigger, .img-only").not('.no-link');
 		this.hoverEvents();
 		this.mousePosition();
 	}

@@ -14,8 +14,10 @@ def site_processor(request):
         general_information_obj['google_analytics_code'] = fields['google_analytics']
         general_information_obj['instagram_handle'] = fields['instagram_handle']
         general_information_obj['instagram_url'] = fields['instagram_url']
+        general_information_obj['menu_description'] = fields['menu_description']
     
     return { 
+        'menu_description': general_information_obj['menu_description'],
         'public_email': general_information_obj['public_email'],
         'instagram_url': general_information_obj['instagram_url'],
         'instagram_handle': general_information_obj['instagram_handle'],

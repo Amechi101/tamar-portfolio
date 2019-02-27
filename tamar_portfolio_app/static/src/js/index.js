@@ -3,7 +3,7 @@ import domready from 'domready'
 
 // modules
 import Env from './base/env.js'
-import { tweenMaxDefaultEase } from './components/global.js';
+import { tweenMaxDefaultEase, artWorkExpandableFunc } from './components/global.js';
 import MainMenuUI from './components/mainMenuUI.js';
 import HomePage from './components/homepage.js';
 import Cursor from './components/cursor.js';

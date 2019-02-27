@@ -5,7 +5,11 @@
 	<div class="menu__container">
 	    <div class="menu__about-container">
 	        <p class="menu__description">
-	        	{% trans 'COSMIC TREASURES........................Rather than paint, I work with Ink & Light & Shadow ... tactile encounters with paper, silk, canvas, chemistry, technology, & glass................." at times you must recede in order to attack.”..........................' %}
+	        	{% if menu_description %}
+		        	{{ menu_description }}
+		        {% else %}
+		        	{% trans 'COSMIC TREASURES........................Rather than paint, I work with Ink & Light & Shadow ... tactile encounters with paper, silk, canvas, chemistry, technology, & glass................." at times you must recede in order to attack.”..........................' %}
+	        	{% endif %}
 	        </p>
 	        <div class="menu__info-container">
 	        	<p class="menu__info">

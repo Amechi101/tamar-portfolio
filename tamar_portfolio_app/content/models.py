@@ -221,6 +221,8 @@ class GeneralInformation(models.Model):
 
 	public_email = models.EmailField(max_length=200, null=True, blank=False, verbose_name='Email', help_text='Public facing contact email.')
 
+	menu_description = models.TextField(max_length=None, null=True, blank=True, verbose_name='Menu Description')
+
 	about_description = models.TextField(max_length=None, null=True, blank=True, verbose_name='About Description')
 
 	instagram_handle = models.CharField(max_length=255, null=True, blank=True, verbose_name='Instagram Handle', 

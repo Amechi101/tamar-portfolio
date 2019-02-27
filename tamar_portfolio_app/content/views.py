@@ -40,7 +40,14 @@ class ArtWorkDetailView(DetailView):
 
 		kwargs['artwork_year'] = artwork_obj
 
-		kwargs['artworks'] = ArtworkDetail.objects.filter(artwork_year=artwork_obj)
+		# Artworks
+		artworks = ArtworkDetail.objects.filter(artwork_year=artwork_obj)
+		length_of_artworks = len(artworks)
+		mid = length_of_artworks // 2
+
+		kwargs['artworks_left'] = artworks[:mid+1]
+		kwargs['artworks_right'] = artworks[mid+1:]
+
 
 		return super().get_context_data(**kwargs)
 

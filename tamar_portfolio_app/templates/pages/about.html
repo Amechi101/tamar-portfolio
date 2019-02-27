@@ -33,6 +33,38 @@
 	</section>
 
 	<section id="CV">
+		<div id="education" class="page-section-list">
+		    <div class="page-section-list-title">
+		        Education
+		    </div>
+		    <ul class="table-list">
+				<li class="table-list-item">
+					<a class="tr no-link">
+			            <div class="td item-date">
+			                2003
+			            </div>
+			            <div class="td">	
+			                <div class="item-content">
+			                    BFA - College of Santa Fe, New Mexico, NM 
+			                </div>
+			            </div>
+			        </a>
+		        </li>
+		        <li class="table-list-item">
+		        	<a class="tr no-link">
+			            <div class="td item-date">
+			                2005
+			            </div>
+			            <div class="td">	
+			                <div class="item-content">
+			                    MFA - Columbia University, New York, NY 
+			                </div>
+			            </div>
+			        </a>
+		        </li>
+		    </ul>
+		</div>
+	
 		{% for cv_obj in cv_list %}
 			<div id="{{ cv_obj.get_category_display }}" class="page-section-list">
 			    <div class="page-section-list-title">
