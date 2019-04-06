@@ -749,7 +749,7 @@ html.webkit .cta:not(button) {
 }
 
 .homepage__hero-visual--wideLandscape {
-    padding-bottom: 70.555556%;
+    padding-bottom: 60.555556%;
 }
 
 /*@media (min-width: 1024px) {
@@ -934,8 +934,8 @@ html.webkit .cta:not(button) {
 
 .homepage__workGrid-img-container img,
 .homepage__workGrid-img-container video {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
 }
 
 .homepage__workGrid-img-container img.img-only {

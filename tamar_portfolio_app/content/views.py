@@ -48,6 +48,5 @@ class ArtWorkDetailView(DetailView):
 		kwargs['artworks_left'] = artworks[:mid+1]
 		kwargs['artworks_right'] = artworks[mid+1:]
 
-
 		return super().get_context_data(**kwargs)
 
